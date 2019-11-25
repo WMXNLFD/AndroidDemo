@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/blueline">
+
+        <EditText
+            android:id="@+id/et_user"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="账号"
+            android:maxLines="1"
+            android:gravity="center"
+            android:background="@null"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorBlue"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
+
+        <EditText
+            android:id="@+id/et_passwd"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="密码"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:gravity="center"
+            android:background="@null"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_margin="35dp"
+        android:text="注册"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/bluesolid"
+        android:textSize="15sp"/>
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="35dp"
+        android:text="登录"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/bluesolid"
+        android:textSize="15sp"/>
+
+    <!--<ListView-->
+        <!--android:id="@+id/listView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+    <!--</ListView>-->
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_bottom"        />
+
+</LinearLayout>

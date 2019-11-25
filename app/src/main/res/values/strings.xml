@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">SandeTest</string>
+    <string name="part1">肺区</string>
+    <string name="report1">肺区 (C7-T3)</string>
+    <string name="part2">心区</string>
+    <string name="report2">心区 (T4-T6)</string>
+    <string name="part3">肝胆区</string>
+    <string name="report3">肝胆区 (T7-T5)</string>
+    <string name="part4">脾胃区</string>
+    <string name="report4">脾胃区 (T11-T2)</string>
+    <string name="part5">肾区</string>
+    <string name="report5">肾区 (L1-L3)</string>
+    <string name="part6">生殖区</string>
+    <string name="report6">生殖区 (L4-S)</string>
+    <string name="part7">其他部位...</string>
+    <string name="report7">其他部位...</string>
+    <string name="search">显示数据库查询的病人信息</string>
+    <string name="report">罐印分析：罐印分析...</string>
+    <string name="diagnose">诊断结果：诊断结果...</string>
+
+    <string name="feedback">反 馈</string>
+    <string name="report_title">诊断结果</string>
+</resources>

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ReportActivity"
+    android:id="@+id/linearlayout">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="10dp"
+        android:text="@string/report_title"
+        android:textSize="25sp"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/bluesolid2"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="9"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:text="姓 名:"
+            android:textColor="@color/colorBlack"/>
+        <EditText
+            android:id="@+id/et_report_name"
+            android:layout_height="40dp"
+            android:text="李某某"
+            android:textSize="15sp"
+            android:textColor="@color/colorBlack"/>
+        <TextView
+            android:text="性 别:"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorBlack"/>
+        <EditText
+            android:id="@+id/et_report_sex"
+            android:layout_height="40dp"
+            android:text="男"
+            android:textSize="15sp"
+            android:textColor="@color/colorBlack"/>
+        <TextView
+            android:text="年 龄:"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorBlack"/>
+        <EditText
+            android:id="@+id/et_report_age"
+            android:layout_height="40dp"
+            android:text="20岁"
+            android:textSize="15sp"
+            android:textColor="@color/colorBlack"/>
+        <TextView
+            android:text="时 间:"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorBlack"/>
+        <EditText
+            android:id="@+id/et_report_date"
+            android:layout_height="40dp"
+            android:text="2019-12-24"
+            android:textSize="15sp"
+            android:textColor="@color/colorBlack"/>
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <ImageView
+            android:id="@+id/iv_pic1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/diagnosepic"
+            android:rotation="0"
+            android:scaleType="fitStart"
+            android:layout_weight="1"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/beizhentu"
+            android:layout_marginLeft="5dp"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shenjingtu"
+            android:layout_marginLeft="5dp"/>
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="10dp"
+        android:columnCount="4"
+        android:orientation="horizontal"
+        android:rowCount="7">
+
+        <TextView
+            android:id="@+id/tv_report1"
+            android:layout_columnSpan="3"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="1dp"
+            android:background="@color/colorBlue2"
+            android:paddingLeft="20dp"
+            android:text="@string/report1"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/et_report1"
+            android:layout_columnSpan="1"
+            android:background="@drawable/graysolid"
+            android:hint="颜色"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_report2"
+            android:layout_columnSpan="3"
+            android:layout_gravity="fill"
+            android:layout_margin="1dp"
+            android:background="@color/colorBlue2"
+            android:paddingLeft="20dp"
+            android:text="@string/report2"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_report2"
+            android:layout_columnSpan="1"
+            android:background="@drawable/graysolid"
+            android:hint="颜色"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_report3"
+            android:layout_columnSpan="3"
+            android:layout_gravity="fill"
+            android:layout_margin="1dp"
+            android:background="@color/colorBlue2"
+            android:paddingLeft="20dp"
+            android:text="@string/report3"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_report3"
+            android:layout_columnSpan="1"
+            android:background="@drawable/graysolid"
+            android:hint="颜色"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_report4"
+            android:layout_columnSpan="3"
+            android:layout_gravity="fill"
+            android:layout_margin="1dp"
+            android:background="@color/colorBlue2"
+            android:paddingLeft="20dp"
+            android:text="@string/report4"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_report4"
+            android:layout_columnSpan="1"
+            android:background="@drawable/graysolid"
+            android:hint="颜色"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_report5"
+            android:layout_columnSpan="3"
+            android:layout_gravity="fill"
+            android:layout_margin="1dp"
+            android:background="@color/colorBlue2"
+            android:paddingLeft="20dp"
+            android:text="@string/report5"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_report5"
+            android:layout_columnSpan="1"
+            android:background="@drawable/graysolid"
+            android:hint="颜色"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_report6"
+            android:layout_columnSpan="3"
+            android:layout_gravity="fill"
+            android:layout_margin="1dp"
+            android:background="@color/colorBlue2"
+            android:paddingLeft="20dp"
+            android:text="@string/report6"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_report6"
+            android:layout_columnSpan="1"
+            android:background="@drawable/graysolid"
+            android:hint="颜色"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_report7"
+            android:layout_columnSpan="3"
+            android:layout_gravity="fill"
+            android:layout_margin="1dp"
+            android:background="@color/colorBlue2"
+            android:paddingLeft="20dp"
+            android:text="@string/report7"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_report7"
+            android:layout_columnSpan="1"
+            android:background="@drawable/graysolid"
+            android:hint="颜色"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:textSize="18sp" />
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/tv_report_analyze"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/report"
+        android:textSize="12sp"
+        android:textColor="@color/colorBlack"/>
+    <TextView
+        android:id="@+id/tv_report_diagnose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/report"
+        android:textSize="12sp"
+        android:textColor="@color/colorBlack"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_report_savedb"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/bluesolid"
+            android:text="保 存"
+            android:textSize="15sp"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="bottom"/>
+        <Button
+            android:id="@+id/btn_report_pdf"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/bluesolid"
+            android:text="生产pdf"
+            android:textSize="15sp"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="bottom"/>
+        <Button
+            android:id="@+id/btn_report_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/bluesolid"
+            android:text="编 辑"
+            android:textSize="15sp"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="bottom"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
