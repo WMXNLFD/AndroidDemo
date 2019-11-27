@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +19,8 @@ public class DiagnoseActivity extends Activity {
     private TextView tv_p1,tv_p2,tv_p3,tv_p4,tv_p5,tv_p6,tv_p7;
     private EditText et_name,et_1,et_2,et_3,et_4,et_5,et_6,et_7;
     private Button btn_decide_color;
+    private ImageView iv_user_photo;
+    Uri userPhotoUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,36 +39,67 @@ public class DiagnoseActivity extends Activity {
         tv_p5.setOnClickListener(onClick);
         tv_p6.setOnClickListener(onClick);
         tv_p7.setOnClickListener(onClick);
+        //确定按钮事件
         btn_decide_color.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //获取当前页面的填写信息，传送到报告页面显示笑信息
-                Intent intent = new Intent(DiagnoseActivity.this, ReportActivity.class);
-                //获取名字信息并传送
-                intent.putExtra("name", et_name.getText().toString());
-                //获取六大区域部位信息并传送
-                intent.putExtra("diagnose1", tv_p1.getText().toString());
-                intent.putExtra("diagnose2", tv_p2.getText().toString());
-                intent.putExtra("diagnose3", tv_p3.getText().toString());
-                intent.putExtra("diagnose4", tv_p4.getText().toString());
-                intent.putExtra("diagnose5", tv_p5.getText().toString());
-                intent.putExtra("diagnose6", tv_p6.getText().toString());
-                //获取其他部位的选择信息并传送
-                intent.putExtra("diagnoseOther", tv_p7.getText().toString());
-                //获取颜色信息并传送
-                intent.putExtra("diagnoseColor1", et_1.getText().toString());
-                intent.putExtra("diagnoseColor2", et_2.getText().toString());
-                intent.putExtra("diagnoseColor3", et_3.getText().toString());
-                intent.putExtra("diagnoseColor4", et_4.getText().toString());
-                intent.putExtra("diagnoseColor5", et_5.getText().toString());
-                intent.putExtra("diagnoseColor6", et_6.getText().toString());
-                intent.putExtra("diagnoseColor7", et_7.getText().toString());
-                //从Diagnose 跳到 Report 页面 发送一个信号标志 防止直接点击报告获取不到信息
-                intent.putExtra("diagnoseToReport", 1);
-                startActivity(intent);
-                Toast.makeText(DiagnoseActivity.this, "提交选择的颜色...", Toast.LENGTH_SHORT).show();
+                //如果就诊人姓名没填，提示填写
+                if(et_name.length() < 1)
+                    Toast.makeText(DiagnoseActivity.this, "请输入就诊人姓名！", Toast.LENGTH_SHORT).show();
+                else {
+                    //获取当前页面的填写信息，传送到报告页面显示笑信息
+                    Intent intent = new Intent(DiagnoseActivity.this, ReportActivity.class);
+                    //获取名字信息并传送
+                    intent.putExtra("name", et_name.getText().toString());
+                    //获取六大区域部位信息并传送
+                    intent.putExtra("diagnose1", tv_p1.getText().toString());
+                    intent.putExtra("diagnose2", tv_p2.getText().toString());
+                    intent.putExtra("diagnose3", tv_p3.getText().toString());
+                    intent.putExtra("diagnose4", tv_p4.getText().toString());
+                    intent.putExtra("diagnose5", tv_p5.getText().toString());
+                    intent.putExtra("diagnose6", tv_p6.getText().toString());
+                    //获取其他部位的选择信息并传送
+                    intent.putExtra("diagnoseOther", tv_p7.getText().toString());
+                    //获取颜色信息并传送
+                    intent.putExtra("diagnoseColor1", et_1.getText().toString());
+                    intent.putExtra("diagnoseColor2", et_2.getText().toString());
+                    intent.putExtra("diagnoseColor3", et_3.getText().toString());
+                    intent.putExtra("diagnoseColor4", et_4.getText().toString());
+                    intent.putExtra("diagnoseColor5", et_5.getText().toString());
+                    intent.putExtra("diagnoseColor6", et_6.getText().toString());
+                    intent.putExtra("diagnoseColor7", et_7.getText().toString());
+                    //从Diagnose 跳到 Report 页面 发送一个信号标志 防止直接点击报告获取不到信息
+                    intent.putExtra("diagnoseToReport", 1);
+                    startActivity(intent);
+                    Toast.makeText(DiagnoseActivity.this, "提交选择的颜色...", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+        //拍照按钮事件
+        iv_user_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //打开本地相册选择照片
+                upLoadPhoto();
+            }
+        });
+    }
+    //打开本地相册选择照片
+    private void upLoadPhoto(){
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+        startActivityForResult(intent, 10);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == 10 && resultCode == RESULT_OK){
+            iv_user_photo.setImageURI(data.getData());
+            //保存图片uri
+            userPhotoUri = data.getData();
+            System.out.println(userPhotoUri);
+        }
     }
 
     private void init() {
@@ -83,6 +119,7 @@ public class DiagnoseActivity extends Activity {
         et_7 = findViewById(R.id.et_7);
         btn_decide_color = findViewById(R.id.btn_decide_color);
         et_name = findViewById(R.id.et_name);
+        iv_user_photo = findViewById(R.id.iv_user_photo);
     }
 
     private class OnClick implements View.OnClickListener{

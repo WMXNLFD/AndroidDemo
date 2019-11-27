@@ -22,6 +22,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PushbackInputStream;
 import java.util.Vector;
 
 public class ReportActivity extends Activity {
@@ -47,12 +48,17 @@ public class ReportActivity extends Activity {
         int diagnoseToReport = getIntent().getIntExtra("diagnoseToReport", 0);
         //获取从信息页面进入报告的发送消息
         int messageToReport = getIntent().getIntExtra("messageToReport", 0);
+        //获取从Patient 页面进入报告的发送消息
+        int patientToReport = getIntent().getIntExtra("patientToReport", 0);
         //从诊断信息进来的，获取信息
         if(diagnoseToReport == 1)
             getInfo();
         //从message页面进入报告，从数据库获取用户诊断数据
         if(messageToReport == 2)
             getRecentUserInfo();
+        //获取patient 发送的消息 并在报告显示 该病人的诊断信息
+        if(patientToReport == 3)
+            getOneUserInfo();
     }
 
     private void init() {
@@ -85,6 +91,27 @@ public class ReportActivity extends Activity {
         btn_report_savedb.setOnClickListener(onClick);
         btn_report_pdf.setOnClickListener(onClick);
         btn_report_edit.setOnClickListener(onClick);
+    }
+
+    public void getOneUserInfo(){
+        String [] oneUserInfo = getIntent().getStringArrayExtra("oneUserInfo");
+        //对查询的病人 获取信息后 进行报告的填写
+        et_report_name.setText(oneUserInfo[1]);
+        et_report_sex.setText(oneUserInfo[2]);
+        et_report_age.setText(oneUserInfo[3]);
+        et_report_date.setText(oneUserInfo[4]);
+        et_report1.setText(oneUserInfo[5]);
+        et_report2.setText(oneUserInfo[6]);
+        et_report3.setText(oneUserInfo[7]);
+        et_report4.setText(oneUserInfo[8]);
+        et_report5.setText(oneUserInfo[9]);
+        et_report6.setText(oneUserInfo[10]);
+        et_report7.setText(oneUserInfo[11]);
+        tv_report7.setText(oneUserInfo[12]);
+        tv_report_analyze.setText(oneUserInfo[13]);
+        tv_report_diagnose.setText(oneUserInfo[14]);
+//        for(int i = 0; i < oneUserInfo.length; i ++)
+//            System.out.println(oneUserInfo[i] + "=-=-=-=-=");
     }
 
     //handle 接收消息进行处理
