@@ -2,9 +2,12 @@ package com.example.sandetest;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 import android.os.Environment;
@@ -23,6 +26,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PushbackInputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Vector;
 
 public class ReportActivity extends Activity {
@@ -393,6 +398,7 @@ public class ReportActivity extends Activity {
      * 生成pdf方法
      */
     private void generatePdf() {
+//        verifyStoragePermissions(ReportActivity);
         PdfDocument document = new PdfDocument();//1.建立PdfDocument
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(linearLayout.getWidth(),linearLayout.getHeight(),1).create();
         PdfDocument.Page page = document.startPage(pageInfo);//2.建立新的page
@@ -403,10 +409,31 @@ public class ReportActivity extends Activity {
         document.finishPage(page);
 
 
-        String path = getApplicationContext().getFilesDir().getAbsolutePath() + "/table1.pdf";
-        System.out.println(path);
-        File file = new File(path);
+//        String path1 = getApplicationContext().getFilesDir().getAbsolutePath() + "/table11.pdf";
+//        String path = getFilesDir().getAbsolutePath() + "/test1.pdf";
+//        System.out.println(getApplicationContext());
+//        System.out.println(getApplicationContext().getFilesDir());
+//        System.out.println(getApplicationContext().getFilesDir().getAbsolutePath());
+//        System.out.println(path);
+//        System.out.println(path1);
+//        String path3 = getFilesDir().getAbsolutePath() + "/Download/test2.pdf";
+
+//        String name = "test3.pdf";
+//        File fileDir = new File(Environment.getExternalStorageDirectory().toString() + File.separator + "test");
+//        if(!fileDir.exists())
+//            fileDir.mkdirs();
+//        File file = new File(fileDir, name);
+//        System.out.println(file + "==========");
+        //文件名 当前时间
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
+        Date date = new Date(System.currentTimeMillis());
+        String dateToFormat = simpleDateFormat.format(date);
+
+        String path2 = "/sdcard/Download/" + dateToFormat + ".pdf";
+        File file = new File(path2);
+
         if(!file.exists()){
+//            file.mkdirs();
             if(file.mkdirs()){
                 System.out.println(1);
             }else

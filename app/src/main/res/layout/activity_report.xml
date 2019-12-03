@@ -25,7 +25,7 @@
         android:paddingRight="10dp">
 
         <TextView
-            android:text="姓 名:"
+            android:text="@string/report_name"
             android:textColor="@color/colorBlack"/>
         <EditText
             android:id="@+id/et_report_name"
@@ -34,8 +34,8 @@
             android:textSize="15sp"
             android:textColor="@color/colorBlack"/>
         <TextView
-            android:text="性 别:"
-            android:paddingLeft="10dp"
+            android:text="@string/report_sex"
+            android:paddingLeft="5dp"
             android:textColor="@color/colorBlack"/>
         <EditText
             android:id="@+id/et_report_sex"
@@ -44,8 +44,8 @@
             android:textSize="15sp"
             android:textColor="@color/colorBlack"/>
         <TextView
-            android:text="年 龄:"
-            android:paddingLeft="10dp"
+            android:text="@string/report_age"
+            android:paddingLeft="5dp"
             android:textColor="@color/colorBlack"/>
         <EditText
             android:id="@+id/et_report_age"
@@ -54,8 +54,8 @@
             android:textSize="15sp"
             android:textColor="@color/colorBlack"/>
         <TextView
-            android:text="时 间:"
-            android:paddingLeft="10dp"
+            android:text="@string/report_date"
+            android:paddingLeft="5dp"
             android:textColor="@color/colorBlack"/>
         <EditText
             android:id="@+id/et_report_date"

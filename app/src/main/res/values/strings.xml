@@ -20,4 +20,8 @@
 
     <string name="feedback">反 馈</string>
     <string name="report_title">诊断结果</string>
+    <string name="report_name">姓名:</string>
+    <string name="report_sex">性别:</string>
+    <string name="report_age">年龄:</string>
+    <string name="report_date">时间:</string>
 </resources>
