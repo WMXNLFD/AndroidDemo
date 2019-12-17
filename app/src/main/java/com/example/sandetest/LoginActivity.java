@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -118,8 +119,34 @@ public class LoginActivity extends Activity {
         else if(et_pass.length() < 1)
             Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show();
         else {
-            dbUtil.insertUserInfo(et_user.getText().toString(), et_pass.getText().toString());
-            Toast.makeText(this, "成功添加数据,注册成功", Toast.LENGTH_SHORT).show();
+            final Handler handler = new Handler(){
+                @Override
+                public void handleMessage(@NonNull Message msg) {
+                    String exist = (String) msg.obj;
+                    if(exist.equals("true")){
+                        Toast.makeText(LoginActivity.this, "用户名已存在!", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        dbUtil.insertUserInfo(et_user.getText().toString(), et_pass.getText().toString());
+                        Toast.makeText(LoginActivity.this, "用户注册成功!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            };
+
+            /**
+             * 判断输入用户是否存在
+             */
+            new Thread(){
+                @Override
+                public void run() {
+                    String exist = dbUtil.userIsExist(et_user.getText().toString());
+                    Message message = new Message();
+                    message.obj = exist;
+                    handler.sendMessage(message);
+                }
+            }.start();
+
+
         }
     }
 

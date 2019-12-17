@@ -23,8 +23,8 @@ public class DBUtil{
     //定义SoapAction与命名空间,作为常量
     private static final String nameSpace = "http://tempuri.org/";
     //url相关参数
-    private static final String url = "http://192.168.6.186:44338/WebService1.asmx";
-//    private static final String url = "http://165872u96i.imwork.net:16497/WebService1.asmx";
+//    private static final String url = "http://192.168.6.186:44338/WebService1.asmx";
+    private static final String url = "http://165872u96i.imwork.net:16497/WebService1.asmx";
     /**
      * webservice 调用方法各种参数
      */
@@ -43,6 +43,40 @@ public class DBUtil{
     //搜索一位病人的诊断信息
     private static final String selectOneMethod = "selectOneUserInfo";
     private static final String selectOneSoapAction = "http://tempuri.org/selectOneUserInfo";
+    //判断输入用户是否存在
+    private static final String userExistMethod = "userNameIsExist";
+    private static final String userExistSoapAction = "http://tempuri.org/userNameIsExist";
+
+    /**
+     * 判断输入用户是否存在
+     * @param Name
+     * @return
+     */
+    public String userIsExist(String Name){
+        SoapObject request = new SoapObject(nameSpace, userExistMethod);
+        //设置参数
+        request.addProperty("Uname", Name);
+
+        //创建SoapSerializationEnvelope 对象，同时指定soap版本号(之前在wsdl中看到的)
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapSerializationEnvelope.VER11);
+        envelope.bodyOut = request ;//由于是发送请求，所以是设置bodyOut
+        envelope.dotNet = true;//由于是.net开发的webservice，所以这里要设置为true
+
+        HttpTransportSE httpTransportSE = new HttpTransportSE(url);
+        System.out.println("服务设置完毕,准备开启服务");
+
+        try {
+            httpTransportSE.call(userExistSoapAction, envelope);
+            System.out.println("调用WebService服务成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("调用WebService服务失败");
+        }
+        //获得服务返回的数据,并且开始解析
+        SoapObject object = (SoapObject) envelope.bodyIn;
+        System.out.println("获得服务数据");
+        return object.getProperty(0).toString();
+    }
 
     /**
      * 搜索一位病人的诊断信息
@@ -74,7 +108,7 @@ public class DBUtil{
         SoapObject object = (SoapObject) envelope.bodyIn;
         SoapObject soapChild = (SoapObject) object.getProperty(0);
         System.out.println("获得服务数据");
-        String[] message = new String[20];//初始化定义 长度为20
+        String[] message = new String[30];//初始化定义 长度为20
 
         for(int i = 0; i < soapChild.getPropertyCount(); i ++)
         {
@@ -180,6 +214,7 @@ public class DBUtil{
         }
     }
 
+    //插入诊断信息
     public void insertDiagnoseInfo(final String Name, final String Sex, final String Age, final String Date, final String Color1,
                                    final String Color2, final String Color3, final String Color4, final String Color5,
                                    final String Color6, final String Color7, final String OtherParts, final String Analyze, final String Result){

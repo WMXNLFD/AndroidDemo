@@ -8,6 +8,8 @@
     tools:context=".ReportActivity"
     android:id="@+id/linearlayout">
 
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -50,7 +52,7 @@
         <EditText
             android:id="@+id/et_report_age"
             android:layout_height="40dp"
-            android:text="20岁"
+            android:text="30"
             android:textSize="15sp"
             android:textColor="@color/colorBlack"/>
         <TextView
@@ -67,183 +69,336 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="190dp"
         android:orientation="horizontal"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
 
         <ImageView
             android:id="@+id/iv_pic1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/diagnosepic"
             android:rotation="0"
-            android:scaleType="fitStart"
-            android:layout_weight="1"/>
-        <ImageView
-            android:layout_width="match_parent"
+            android:scaleType="fitXY"
+            android:layout_weight="1" />
+
+        <GridLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/beizhentu"
-            android:layout_marginLeft="5dp"/>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/shenjingtu"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="0dp"
+            android:columnCount="4"
+            android:orientation="horizontal"
+            android:rowCount="7"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_report1"
+                android:layout_columnSpan="3"
+                android:layout_gravity="fill_horizontal"
+                android:layout_margin="1dp"
+                android:background="@color/colorBlue2"
+                android:paddingLeft="10dp"
+                android:text="@string/report1"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/et_report1"
+                android:layout_columnSpan="1"
+                android:background="@drawable/graysolid"
+                android:hint="颜色"
+                android:paddingLeft="5dp"
+                android:paddingRight="30dp"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/tv_report2"
+                android:layout_columnSpan="3"
+                android:layout_gravity="fill"
+                android:layout_margin="1dp"
+                android:background="@color/colorBlue2"
+                android:paddingLeft="5dp"
+                android:text="@string/report2"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et_report2"
+                android:layout_columnSpan="1"
+                android:background="@drawable/graysolid"
+                android:hint="颜色"
+                android:paddingLeft="5dp"
+                android:paddingRight="30dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_report3"
+                android:layout_columnSpan="3"
+                android:layout_gravity="fill"
+                android:layout_margin="1dp"
+                android:background="@color/colorBlue2"
+                android:paddingLeft="5dp"
+                android:text="@string/report3"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et_report3"
+                android:layout_columnSpan="1"
+                android:background="@drawable/graysolid"
+                android:hint="颜色"
+                android:paddingLeft="5dp"
+                android:paddingRight="30dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_report4"
+                android:layout_columnSpan="3"
+                android:layout_gravity="fill"
+                android:layout_margin="1dp"
+                android:background="@color/colorBlue2"
+                android:paddingLeft="5dp"
+                android:text="@string/report4"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et_report4"
+                android:layout_columnSpan="1"
+                android:background="@drawable/graysolid"
+                android:hint="颜色"
+                android:paddingLeft="5dp"
+                android:paddingRight="30dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_report5"
+                android:layout_columnSpan="3"
+                android:layout_gravity="fill"
+                android:layout_margin="1dp"
+                android:background="@color/colorBlue2"
+                android:paddingLeft="5dp"
+                android:text="@string/report5"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et_report5"
+                android:layout_columnSpan="1"
+                android:background="@drawable/graysolid"
+                android:hint="颜色"
+                android:paddingLeft="5dp"
+                android:paddingRight="30dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_report6"
+                android:layout_columnSpan="3"
+                android:layout_gravity="fill"
+                android:layout_margin="1dp"
+                android:background="@color/colorBlue2"
+                android:paddingLeft="5dp"
+                android:text="@string/report6"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et_report6"
+                android:layout_columnSpan="1"
+                android:background="@drawable/graysolid"
+                android:hint="颜色"
+                android:paddingLeft="5dp"
+                android:paddingRight="30dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_report7"
+                android:layout_columnSpan="3"
+                android:layout_gravity="fill"
+                android:layout_margin="1dp"
+                android:background="@color/colorBlue2"
+                android:paddingLeft="5dp"
+                android:text="@string/report7"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et_report7"
+                android:layout_columnSpan="1"
+                android:background="@drawable/graysolid"
+                android:hint="颜色"
+                android:paddingLeft="5dp"
+                android:paddingRight="30dp"
+                android:textSize="18sp" />
+        </GridLayout>
+
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/beizhentu"-->
+            <!--android:layout_marginLeft="5dp"/>-->
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/shenjingtu"-->
+            <!--android:layout_marginLeft="5dp"/>-->
     </LinearLayout>
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginRight="10dp"
-        android:columnCount="4"
-        android:orientation="horizontal"
-        android:rowCount="7">
+    <!--<GridLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_marginTop="0dp"-->
+        <!--android:layout_marginRight="10dp"-->
+        <!--android:columnCount="4"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:rowCount="7">-->
 
-        <TextView
-            android:id="@+id/tv_report1"
-            android:layout_columnSpan="3"
-            android:layout_gravity="fill_horizontal"
-            android:layout_margin="1dp"
-            android:background="@color/colorBlue2"
-            android:paddingLeft="20dp"
-            android:text="@string/report1"
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp"/>
+        <!--<TextView-->
+            <!--android:id="@+id/tv_report1"-->
+            <!--android:layout_columnSpan="3"-->
+            <!--android:layout_gravity="fill_horizontal"-->
+            <!--android:layout_margin="1dp"-->
+            <!--android:background="@color/colorBlue2"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:text="@string/report1"-->
+            <!--android:textColor="@color/colorWhite"-->
+            <!--android:textSize="18sp"/>-->
 
-        <EditText
-            android:id="@+id/et_report1"
-            android:layout_columnSpan="1"
-            android:background="@drawable/graysolid"
-            android:hint="颜色"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:textSize="18sp" />
+        <!--<EditText-->
+            <!--android:id="@+id/et_report1"-->
+            <!--android:layout_columnSpan="1"-->
+            <!--android:background="@drawable/graysolid"-->
+            <!--android:hint="颜色"-->
+            <!--android:paddingLeft="30dp"-->
+            <!--android:paddingRight="30dp"-->
+            <!--android:textSize="18sp" />-->
 
-        <TextView
-            android:id="@+id/tv_report2"
-            android:layout_columnSpan="3"
-            android:layout_gravity="fill"
-            android:layout_margin="1dp"
-            android:background="@color/colorBlue2"
-            android:paddingLeft="20dp"
-            android:text="@string/report2"
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_report2"-->
+            <!--android:layout_columnSpan="3"-->
+            <!--android:layout_gravity="fill"-->
+            <!--android:layout_margin="1dp"-->
+            <!--android:background="@color/colorBlue2"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:text="@string/report2"-->
+            <!--android:textColor="@color/colorWhite"-->
+            <!--android:textSize="18sp" />-->
 
-        <EditText
-            android:id="@+id/et_report2"
-            android:layout_columnSpan="1"
-            android:background="@drawable/graysolid"
-            android:hint="颜色"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:textSize="18sp" />
+        <!--<EditText-->
+            <!--android:id="@+id/et_report2"-->
+            <!--android:layout_columnSpan="1"-->
+            <!--android:background="@drawable/graysolid"-->
+            <!--android:hint="颜色"-->
+            <!--android:paddingLeft="30dp"-->
+            <!--android:paddingRight="30dp"-->
+            <!--android:textSize="18sp" />-->
 
-        <TextView
-            android:id="@+id/tv_report3"
-            android:layout_columnSpan="3"
-            android:layout_gravity="fill"
-            android:layout_margin="1dp"
-            android:background="@color/colorBlue2"
-            android:paddingLeft="20dp"
-            android:text="@string/report3"
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_report3"-->
+            <!--android:layout_columnSpan="3"-->
+            <!--android:layout_gravity="fill"-->
+            <!--android:layout_margin="1dp"-->
+            <!--android:background="@color/colorBlue2"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:text="@string/report3"-->
+            <!--android:textColor="@color/colorWhite"-->
+            <!--android:textSize="18sp" />-->
 
-        <EditText
-            android:id="@+id/et_report3"
-            android:layout_columnSpan="1"
-            android:background="@drawable/graysolid"
-            android:hint="颜色"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:textSize="18sp" />
+        <!--<EditText-->
+            <!--android:id="@+id/et_report3"-->
+            <!--android:layout_columnSpan="1"-->
+            <!--android:background="@drawable/graysolid"-->
+            <!--android:hint="颜色"-->
+            <!--android:paddingLeft="30dp"-->
+            <!--android:paddingRight="30dp"-->
+            <!--android:textSize="18sp" />-->
 
-        <TextView
-            android:id="@+id/tv_report4"
-            android:layout_columnSpan="3"
-            android:layout_gravity="fill"
-            android:layout_margin="1dp"
-            android:background="@color/colorBlue2"
-            android:paddingLeft="20dp"
-            android:text="@string/report4"
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_report4"-->
+            <!--android:layout_columnSpan="3"-->
+            <!--android:layout_gravity="fill"-->
+            <!--android:layout_margin="1dp"-->
+            <!--android:background="@color/colorBlue2"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:text="@string/report4"-->
+            <!--android:textColor="@color/colorWhite"-->
+            <!--android:textSize="18sp" />-->
 
-        <EditText
-            android:id="@+id/et_report4"
-            android:layout_columnSpan="1"
-            android:background="@drawable/graysolid"
-            android:hint="颜色"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:textSize="18sp" />
+        <!--<EditText-->
+            <!--android:id="@+id/et_report4"-->
+            <!--android:layout_columnSpan="1"-->
+            <!--android:background="@drawable/graysolid"-->
+            <!--android:hint="颜色"-->
+            <!--android:paddingLeft="30dp"-->
+            <!--android:paddingRight="30dp"-->
+            <!--android:textSize="18sp" />-->
 
-        <TextView
-            android:id="@+id/tv_report5"
-            android:layout_columnSpan="3"
-            android:layout_gravity="fill"
-            android:layout_margin="1dp"
-            android:background="@color/colorBlue2"
-            android:paddingLeft="20dp"
-            android:text="@string/report5"
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_report5"-->
+            <!--android:layout_columnSpan="3"-->
+            <!--android:layout_gravity="fill"-->
+            <!--android:layout_margin="1dp"-->
+            <!--android:background="@color/colorBlue2"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:text="@string/report5"-->
+            <!--android:textColor="@color/colorWhite"-->
+            <!--android:textSize="18sp" />-->
 
-        <EditText
-            android:id="@+id/et_report5"
-            android:layout_columnSpan="1"
-            android:background="@drawable/graysolid"
-            android:hint="颜色"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:textSize="18sp" />
+        <!--<EditText-->
+            <!--android:id="@+id/et_report5"-->
+            <!--android:layout_columnSpan="1"-->
+            <!--android:background="@drawable/graysolid"-->
+            <!--android:hint="颜色"-->
+            <!--android:paddingLeft="30dp"-->
+            <!--android:paddingRight="30dp"-->
+            <!--android:textSize="18sp" />-->
 
-        <TextView
-            android:id="@+id/tv_report6"
-            android:layout_columnSpan="3"
-            android:layout_gravity="fill"
-            android:layout_margin="1dp"
-            android:background="@color/colorBlue2"
-            android:paddingLeft="20dp"
-            android:text="@string/report6"
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_report6"-->
+            <!--android:layout_columnSpan="3"-->
+            <!--android:layout_gravity="fill"-->
+            <!--android:layout_margin="1dp"-->
+            <!--android:background="@color/colorBlue2"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:text="@string/report6"-->
+            <!--android:textColor="@color/colorWhite"-->
+            <!--android:textSize="18sp" />-->
 
-        <EditText
-            android:id="@+id/et_report6"
-            android:layout_columnSpan="1"
-            android:background="@drawable/graysolid"
-            android:hint="颜色"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:textSize="18sp" />
+        <!--<EditText-->
+            <!--android:id="@+id/et_report6"-->
+            <!--android:layout_columnSpan="1"-->
+            <!--android:background="@drawable/graysolid"-->
+            <!--android:hint="颜色"-->
+            <!--android:paddingLeft="30dp"-->
+            <!--android:paddingRight="30dp"-->
+            <!--android:textSize="18sp" />-->
 
-        <TextView
-            android:id="@+id/tv_report7"
-            android:layout_columnSpan="3"
-            android:layout_gravity="fill"
-            android:layout_margin="1dp"
-            android:background="@color/colorBlue2"
-            android:paddingLeft="20dp"
-            android:text="@string/report7"
-            android:textColor="@color/colorWhite"
-            android:textSize="18sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_report7"-->
+            <!--android:layout_columnSpan="3"-->
+            <!--android:layout_gravity="fill"-->
+            <!--android:layout_margin="1dp"-->
+            <!--android:background="@color/colorBlue2"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:text="@string/report7"-->
+            <!--android:textColor="@color/colorWhite"-->
+            <!--android:textSize="18sp" />-->
 
-        <EditText
-            android:id="@+id/et_report7"
-            android:layout_columnSpan="1"
-            android:background="@drawable/graysolid"
-            android:hint="颜色"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:textSize="18sp" />
-    </GridLayout>
+        <!--<EditText-->
+            <!--android:id="@+id/et_report7"-->
+            <!--android:layout_columnSpan="1"-->
+            <!--android:background="@drawable/graysolid"-->
+            <!--android:hint="颜色"-->
+            <!--android:paddingLeft="30dp"-->
+            <!--android:paddingRight="30dp"-->
+            <!--android:textSize="18sp" />-->
+    <!--</GridLayout>-->
 
     <TextView
         android:id="@+id/tv_report_analyze"
@@ -251,11 +406,18 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:text="@string/report"
-        android:textSize="12sp"
+        android:text="@string/analyze"
+        android:textSize="11sp"
         android:textColor="@color/colorBlack"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/lineshape"/>
     <TextView
         android:id="@+id/tv_report_diagnose"
         android:layout_width="match_parent"
@@ -265,9 +427,93 @@
         android:layout_marginRight="10dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:text="@string/report"
-        android:textSize="12sp"
+        android:text="@string/diagnose"
+        android:textSize="11sp"
         android:textColor="@color/colorBlack"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/lineshape"/>
+    <TextView
+        android:id="@+id/tv_report_treat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/treat"
+        android:textSize="11sp"
+        android:textColor="@color/colorBlack"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/lineshape"/>
+    <TextView
+        android:id="@+id/tv_report_cases"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/cases"
+        android:textSize="11sp"
+        android:textColor="@color/colorBlack"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/process"
+        android:textSize="11sp"
+        android:textColor="@color/colorBlack"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/lineshape"/>
+    <TextView
+        android:id="@+id/tv_report_opinion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/opinion"
+        android:textSize="11sp"
+        android:textColor="@color/colorBlack"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/lineshape"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/doctorview"
+        android:textSize="11sp"
+        android:textColor="@color/colorBlack"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -294,7 +540,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="30dp"
             android:background="@drawable/bluesolid"
-            android:text="生产pdf"
+            android:text="生成pdf"
             android:textSize="15sp"
             android:textColor="@color/colorWhite"
             android:layout_gravity="bottom"/>

@@ -1,12 +1,18 @@
 package com.example.sandetest;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,13 +20,27 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.FileProvider;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class DiagnoseActivity extends Activity {
 
     private TextView tv_p1,tv_p2,tv_p3,tv_p4,tv_p5,tv_p6,tv_p7;
-    private EditText et_name,et_1,et_2,et_3,et_4,et_5,et_6,et_7;
+    private EditText et_1,et_2,et_3,et_4,et_5,et_6,et_7;
     private Button btn_decide_color;
-    private ImageView iv_user_photo;
-    Uri userPhotoUri;
+    private ImageView iv_user_photo, iv_user_takephoto;
+    Uri userPhotoUri, mImageUri;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+    private File mFilePath;
+    private String photoPath;
+    private String[] permissions = {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    boolean userPhotoIsChoose = false; //是否选择患者照片
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +50,7 @@ public class DiagnoseActivity extends Activity {
         setListeners();
     }
 
+    //点击事件 的设置在这里
     private void setListeners() {
         OnClick onClick = new OnClick();
         tv_p1.setOnClickListener(onClick);
@@ -43,14 +64,17 @@ public class DiagnoseActivity extends Activity {
         btn_decide_color.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //如果就诊人姓名没填，提示填写
-                if(et_name.length() < 1)
-                    Toast.makeText(DiagnoseActivity.this, "请输入就诊人姓名！", Toast.LENGTH_SHORT).show();
+                //如果没选照片，提示选照片
+                if(userPhotoIsChoose == false)
+                    Toast.makeText(DiagnoseActivity.this, "请选择患者照片!", Toast.LENGTH_SHORT).show();
                 else {
                     //获取当前页面的填写信息，传送到报告页面显示笑信息
                     Intent intent = new Intent(DiagnoseActivity.this, ReportActivity.class);
                     //获取名字信息并传送
-                    intent.putExtra("name", et_name.getText().toString());
+//                    intent.putExtra("name", et_name.getText().toString());
+                    //获取照片uri并传送
+                    System.out.println(userPhotoUri + " +++++++++++");
+                    intent.putExtra("userPhotoUri", userPhotoUri.toString());
                     //获取六大区域部位信息并传送
                     intent.putExtra("diagnose1", tv_p1.getText().toString());
                     intent.putExtra("diagnose2", tv_p2.getText().toString());
@@ -75,15 +99,82 @@ public class DiagnoseActivity extends Activity {
                 }
             }
         });
-        //拍照按钮事件
+        //选择本地相册点击事件
         iv_user_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //打开本地相册选择照片
                 upLoadPhoto();
+                //打开相机进行照相的功能
+//                takePhoto();
             }
         });
+        //照相功能的点击事件
+        iv_user_takephoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //打开相机进行照相的功能
+                takePhoto();
+            }
+        });
+
     }
+
+    //打开相机进行照相的功能
+    private void takePhoto(){
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+//        mFilePath = new File(Environment.getExternalStorageDirectory().getPath() + "/" + System.currentTimeMillis() + ".jpg"); // 指定路径
+        mFilePath = new File(Environment.getExternalStorageDirectory().getPath() + "/" + timeStamp + ".jpg"); // 指定路径
+//        System.out.println(System.currentTimeMillis() + "=====");
+//        System.out.println(timeStamp + "=====");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            //第二个参数为 包名.fileprovider
+            mImageUri = FileProvider.getUriForFile(this, "com.example.sandetest.DiagnoseActivity.fileprovider", mFilePath);
+        }
+        else{
+            mImageUri = Uri.fromFile(mFilePath);
+        }
+        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
+        System.out.println("=====拍照返回图片路径=========:" + mImageUri);
+        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+
+//        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+//            File imageFile = createImageFile();// 创建用来保存照片的文件
+//            if(imageFile != null){
+//                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+//                    /*7.0以上要通过FileProvider将File转化为Uri*/
+////                    mImageUri = FileProvider.getUriForFile(this,FILE_PROVIDER_AUTHORITY,imageFile);
+////                    System.out.println("ahahhahahaahah");
+//                    mImageUri = Uri.fromFile(imageFile);
+//                }
+//                else {
+//                    mImageUri = Uri.fromFile(imageFile);
+//                }
+//            }
+//            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,mImageUri);//将用于输出的文件Uri传递给相机
+//            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+//        }
+    }
+
+    /**
+     * 创建用来存储图片的文件，以时间来命名就不会产生命名冲突
+     * @return 创建的图片文件
+     */
+    private File createImageFile(){
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_"+timeStamp+"_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File imageFile = null;
+        try {
+            imageFile = File.createTempFile(imageFileName,".jpg",storageDir);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return imageFile;
+    }
+
+
     //打开本地相册选择照片
     private void upLoadPhoto(){
         Intent intent = new Intent(Intent.ACTION_PICK);
@@ -92,13 +183,34 @@ public class DiagnoseActivity extends Activity {
 
     }
 
+    //处理相册和相机 的消息处理
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == 10 && resultCode == RESULT_OK){
             iv_user_photo.setImageURI(data.getData());
             //保存图片uri
             userPhotoUri = data.getData();
+            userPhotoIsChoose = true;
             System.out.println(userPhotoUri);
+        }
+        //获取拍摄图片的结果
+        else if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK){
+//            try {
+//                /*如果拍照成功，将Uri用BitmapFactory的decodeStream方法转为Bitmap*/
+//                Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(mImageUri));
+//                iv_user_photo.setImageBitmap(bitmap);//显示到ImageView上
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                photoPath = String.valueOf(mFilePath);
+            }else{
+                photoPath = mImageUri.getEncodedPath();
+            }
+            Log.d("拍照返回图片路径:", photoPath);
+            System.out.println("++++++拍照返回图片路径:" + photoPath);
+            Uri photoUri = Uri.parse(photoPath);
+            iv_user_photo.setImageURI(photoUri);
         }
     }
 
@@ -118,10 +230,12 @@ public class DiagnoseActivity extends Activity {
         et_6 = findViewById(R.id.et_6);
         et_7 = findViewById(R.id.et_7);
         btn_decide_color = findViewById(R.id.btn_decide_color);
-        et_name = findViewById(R.id.et_name);
+//        et_name = findViewById(R.id.et_name);
         iv_user_photo = findViewById(R.id.iv_user_photo);
+        iv_user_takephoto = findViewById(R.id.iv_user_takephoto);
     }
 
+    //选择罐印点击事件
     private class OnClick implements View.OnClickListener{
         @Override
         public void onClick(View v) {
@@ -159,6 +273,7 @@ public class DiagnoseActivity extends Activity {
         }
     }
 
+    //其他部位点击弹出对话框
     private void selectSite() {
         final String[] items = new String[] {"颈部","肩部","腰部","胸肋部","肩关节部","肘关节部","膝关节部","踝关节部","腹部"};
         AlertDialog.Builder builder = new AlertDialog.Builder(DiagnoseActivity.this);
@@ -182,6 +297,7 @@ public class DiagnoseActivity extends Activity {
         builder.create().show();
     }
 
+    //选择颜色 弹出对话框
     private void setColor(final int tv_pnum) {
         //单选列表对话框
         final String[] items = new String[] {"淡红色","鲜红色","白    色","青    色","紫    色","紫黑色"};

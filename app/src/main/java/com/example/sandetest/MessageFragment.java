@@ -46,6 +46,7 @@ public class MessageFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), ReportActivity.class);
                 intent.putExtra("messageToReport", 2);
                 startActivity(intent);
+                //其实应该在这里调用数据库，，，后面记得优化！！
             }
         });
         
