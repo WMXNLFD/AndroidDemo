@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -24,21 +25,21 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:src="@drawable/tab1_normal"/>
+            android:src="@drawable/ic_home_black_24dp"/>
 
         <ImageView
             android:id="@+id/iv_message"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:src="@drawable/tab2_normal"/>
+            android:src="@drawable/ic_description_black_24dp"/>
 
         <ImageView
             android:id="@+id/iv_me"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:src="@drawable/tab3_normal"/>
+            android:src="@drawable/ic_person_outline_black_24dp"/>
 
     </LinearLayout>
 

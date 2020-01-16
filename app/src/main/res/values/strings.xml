@@ -31,4 +31,7 @@
     <string name="opinion">医嘱：加强锻炼、注意保暖、劳逸结合、保持正常心态、预防感染、提高免疫力、积极治疗、避免诱因、注意饮食。</string>
     <string name="process">（疗程）：前3次每天1次，后7次隔天1次，治疗共10次。</string>
     <string name="doctorview">临床医生意见：</string>
+    <string name="btn_savedb">保 存</string>
+    <string name="btn_pdf">生成pdf</string>
+    <string name="btn_diagnose">诊 断</string>
 </resources>

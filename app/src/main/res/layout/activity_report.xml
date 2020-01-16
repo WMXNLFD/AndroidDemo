@@ -91,8 +91,28 @@
             android:layout_marginRight="0dp"
             android:columnCount="4"
             android:orientation="horizontal"
-            android:rowCount="7"
+            android:rowCount="8"
             android:layout_weight="1">
+
+            <TextView
+                android:layout_columnSpan="2"
+                android:text="手机号码"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorBlue2"
+                android:textSize="12sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_margin="1dp"/>
+
+            <EditText
+                android:id="@+id/et_report_phone"
+                android:layout_columnSpan="2"
+                android:background="@drawable/graysolid"
+                android:hint="请填写手机号码"
+                android:singleLine="true"
+                android:paddingLeft="10dp"
+                android:paddingRight="5dp"
+                android:textSize="12sp"/>
 
             <TextView
                 android:id="@+id/tv_report1"
@@ -100,10 +120,10 @@
                 android:layout_gravity="fill_horizontal"
                 android:layout_margin="1dp"
                 android:background="@color/colorBlue2"
-                android:paddingLeft="10dp"
+                android:paddingLeft="5dp"
                 android:text="@string/report1"
                 android:textColor="@color/colorWhite"
-                android:textSize="18sp"/>
+                android:textSize="17sp"/>
 
             <EditText
                 android:id="@+id/et_report1"
@@ -112,7 +132,7 @@
                 android:hint="颜色"
                 android:paddingLeft="5dp"
                 android:paddingRight="30dp"
-                android:textSize="18sp"/>
+                android:textSize="17sp"/>
 
             <TextView
                 android:id="@+id/tv_report2"
@@ -123,7 +143,7 @@
                 android:paddingLeft="5dp"
                 android:text="@string/report2"
                 android:textColor="@color/colorWhite"
-                android:textSize="18sp" />
+                android:textSize="17sp" />
 
             <EditText
                 android:id="@+id/et_report2"
@@ -132,7 +152,7 @@
                 android:hint="颜色"
                 android:paddingLeft="5dp"
                 android:paddingRight="30dp"
-                android:textSize="18sp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/tv_report3"
@@ -143,7 +163,7 @@
                 android:paddingLeft="5dp"
                 android:text="@string/report3"
                 android:textColor="@color/colorWhite"
-                android:textSize="18sp" />
+                android:textSize="17sp" />
 
             <EditText
                 android:id="@+id/et_report3"
@@ -152,7 +172,7 @@
                 android:hint="颜色"
                 android:paddingLeft="5dp"
                 android:paddingRight="30dp"
-                android:textSize="18sp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/tv_report4"
@@ -163,7 +183,7 @@
                 android:paddingLeft="5dp"
                 android:text="@string/report4"
                 android:textColor="@color/colorWhite"
-                android:textSize="18sp" />
+                android:textSize="17sp" />
 
             <EditText
                 android:id="@+id/et_report4"
@@ -172,7 +192,7 @@
                 android:hint="颜色"
                 android:paddingLeft="5dp"
                 android:paddingRight="30dp"
-                android:textSize="18sp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/tv_report5"
@@ -183,7 +203,7 @@
                 android:paddingLeft="5dp"
                 android:text="@string/report5"
                 android:textColor="@color/colorWhite"
-                android:textSize="18sp" />
+                android:textSize="17sp" />
 
             <EditText
                 android:id="@+id/et_report5"
@@ -192,7 +212,7 @@
                 android:hint="颜色"
                 android:paddingLeft="5dp"
                 android:paddingRight="30dp"
-                android:textSize="18sp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/tv_report6"
@@ -203,7 +223,7 @@
                 android:paddingLeft="5dp"
                 android:text="@string/report6"
                 android:textColor="@color/colorWhite"
-                android:textSize="18sp" />
+                android:textSize="17sp" />
 
             <EditText
                 android:id="@+id/et_report6"
@@ -212,7 +232,7 @@
                 android:hint="颜色"
                 android:paddingLeft="5dp"
                 android:paddingRight="30dp"
-                android:textSize="18sp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/tv_report7"
@@ -223,7 +243,7 @@
                 android:paddingLeft="5dp"
                 android:text="@string/report7"
                 android:textColor="@color/colorWhite"
-                android:textSize="18sp" />
+                android:textSize="17sp" />
 
             <EditText
                 android:id="@+id/et_report7"
@@ -232,7 +252,7 @@
                 android:hint="颜色"
                 android:paddingLeft="5dp"
                 android:paddingRight="30dp"
-                android:textSize="18sp" />
+                android:textSize="17sp" />
         </GridLayout>
 
         <!--<ImageView-->
@@ -464,7 +484,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/cases"
-        android:textSize="11sp"
+        android:textSize="10sp"
         android:textColor="@color/colorBlack"/>
     <TextView
         android:layout_width="match_parent"
@@ -529,7 +549,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="30dp"
             android:background="@drawable/bluesolid"
-            android:text="保 存"
+            android:text="@string/btn_savedb"
             android:textSize="15sp"
             android:textColor="@color/colorWhite"
             android:layout_gravity="bottom"/>
@@ -540,7 +560,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="30dp"
             android:background="@drawable/bluesolid"
-            android:text="生成pdf"
+            android:text="@string/btn_pdf"
             android:textSize="15sp"
             android:textColor="@color/colorWhite"
             android:layout_gravity="bottom"/>
@@ -552,7 +572,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/bluesolid"
-            android:text="编 辑"
+            android:text="@string/btn_diagnose"
             android:textSize="15sp"
             android:textColor="@color/colorWhite"
             android:layout_gravity="bottom"/>

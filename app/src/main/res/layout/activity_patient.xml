@@ -10,23 +10,23 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
         android:text="患者列表"
         android:textColor="@color/colorBlue"
         android:textSize="30sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:textStyle="bold"/>
 
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="搜索患者"
-        android:iconifiedByDefault="false"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="搜索患者">
     </SearchView>
     
     <!--<TextView-->
@@ -39,11 +39,87 @@
         <!--android:padding="10dp"-->
         <!--android:background="@drawable/blueline"/>-->
 
+    <!--<GridLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:columnCount="4"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:padding="10dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:rowCount="2">-->
+
+        <!--<TextView-->
+            <!--android:text="用户ID"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:textSize="15sp"/>-->
+
+        <!--<TextView-->
+            <!--android:text="用户姓名"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:textSize="15sp"/>-->
+
+        <!--<TextView-->
+            <!--android:text="用户号码"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:textSize="15sp"/>-->
+
+        <!--<TextView-->
+            <!--android:text="诊断日期"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:paddingLeft="20dp"-->
+            <!--android:textSize="15sp"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_patient_1"-->
+            <!--android:text="用户1"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:layout_columnSpan="4"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:textSize="15sp"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/tv_patient_2"-->
+            <!--android:text="用户2"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:layout_columnSpan="4"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:textSize="15sp"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/tv_patient_3"-->
+            <!--android:text="用户3"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:layout_columnSpan="4"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:textSize="15sp"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/tv_patient_4"-->
+            <!--android:text="用户4"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:layout_columnSpan="4"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:textSize="15sp"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/tv_patient_5"-->
+            <!--android:text="用户5"-->
+            <!--android:textColor="@color/colorBlack"-->
+            <!--android:layout_columnSpan="4"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:textSize="15sp"/>-->
+
+
+    <!--</GridLayout>-->
+
+    <ListView
+        android:id="@+id/lv_main"
+        android:layout_width="match_parent"
+        android:layout_height="400dp" />
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/patientbg"
-        android:layout_marginTop="300dp"/>
-
+        android:layout_marginTop="0dp"
+        android:background="@drawable/patientbg"/>
 
 </LinearLayout>

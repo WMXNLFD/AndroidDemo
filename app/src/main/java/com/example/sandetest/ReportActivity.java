@@ -42,10 +42,11 @@ public class ReportActivity extends Activity {
     private TextView tv_report7, tv_report_analyze, tv_report_diagnose, tv_report_treat, tv_report_cases,
             tv_report1,tv_report2,tv_report3,tv_report4,tv_report5,tv_report6;
     private EditText et_report1, et_report2, et_report3, et_report4, et_report5, et_report6, et_report7,
-            et_report_name, et_report_sex, et_report_age, et_report_date;
+            et_report_name, et_report_sex, et_report_age, et_report_date, et_report_phone;
     private LinearLayout linearLayout;
     private DBUtil dbUtil;
 //    DBUtil dbUtil = new DBUtil();//创建数据库类
+    Uri userPhotoUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +81,7 @@ public class ReportActivity extends Activity {
             //中医治疗和调理方案就不存入数据库了，直接根据数据库存的颜色，调用方法采集数据，减少代码复杂度
             //我真是太聪明了=。=
             getTreatAndCasesInfo();
+            btn_report_savedb.setVisibility(View.INVISIBLE);
             btn_report_edit.setVisibility(View.INVISIBLE); //不显示，并且不保留所占空间
         }
         System.out.println(et_report1.getText() + "在外面-=-=---=-=************-=-=---=");
@@ -93,6 +95,7 @@ public class ReportActivity extends Activity {
         et_report_sex = findViewById(R.id.et_report_sex);
         et_report_age = findViewById(R.id.et_report_age);
         et_report_date = findViewById(R.id.et_report_date);
+        et_report_phone = findViewById(R.id.et_report_phone);
 
         et_report1 = findViewById(R.id.et_report1);
         et_report2 = findViewById(R.id.et_report2);
@@ -129,7 +132,7 @@ public class ReportActivity extends Activity {
 
     // 根据查询页面 从数据库获取查询用户的诊断信息
     public void getOneUserInfo(){
-        String [] oneUserInfo = getIntent().getStringArrayExtra("oneUserInfo");
+        String [] oneUserInfo = getIntent().getStringArrayExtra("idUserInfo");
         //对查询的病人 获取信息后 进行报告的填写
         et_report_name.setText(oneUserInfo[1]);
         et_report_sex.setText(oneUserInfo[2]);
@@ -145,6 +148,14 @@ public class ReportActivity extends Activity {
         tv_report7.setText(oneUserInfo[12]);
         tv_report_analyze.setText(oneUserInfo[13]);
         tv_report_diagnose.setText(oneUserInfo[14]);
+        userPhotoUri = Uri.parse(oneUserInfo[18]);
+        try {
+            iv_pic1.setImageURI(userPhotoUri); //String 转为Uri
+        }catch (Exception e)
+        {
+            iv_pic1.setImageURI(null);
+        }
+        et_report_phone.setText(oneUserInfo[19]);
 //        for(int i = 0; i < oneUserInfo.length; i ++)
 //            System.out.println(oneUserInfo[i] + "=-=-=-=-=");
     }
@@ -170,8 +181,17 @@ public class ReportActivity extends Activity {
                 tv_report7.setText(recentUserInfo[12]);
                 tv_report_analyze.setText(recentUserInfo[13]);
                 tv_report_diagnose.setText(recentUserInfo[14]);
-                System.out.println(et_report1.getText() + "在里面");
-
+                tv_report_treat.setText(recentUserInfo[15]); //设置中医治疗原则
+                System.out.println(recentUserInfo[18] + "[[[[[[");
+                userPhotoUri = Uri.parse(recentUserInfo[18]);
+                try {
+                    iv_pic1.setImageURI(userPhotoUri); //String 转为Uri
+                }catch (Exception e)
+                {
+                    iv_pic1.setImageURI(null);
+                }
+//                iv_pic1.setImageURI(userPhotoUri); //String 转为Uri
+                et_report_phone.setText(recentUserInfo[19]);
 //                for(int i = 0; i < recentUserInfo.length;  i++)
 //                    System.out.println(recentUserInfo[i] + "==========");
 
@@ -241,8 +261,8 @@ public class ReportActivity extends Activity {
         String name = getIntent().getStringExtra("name");
         //获取图片地址
         String userPhoto = getIntent().getStringExtra("userPhotoUri");
-        System.out.println(userPhoto + "-----------------");
-        Uri userPhotoUri = Uri.parse(userPhoto);
+        System.out.println(userPhoto + "--==------");
+        userPhotoUri = Uri.parse(userPhoto);
         System.out.println(userPhotoUri + "-----------------");
         //获取颜色
         String reportColor1 = getIntent().getStringExtra("diagnoseColor1");
@@ -570,7 +590,7 @@ public class ReportActivity extends Activity {
                 case R.id.btn_report_pdf:
                     //同样 弹出对话框进行选择
                     AlertDialog.Builder dialogPdf = new AlertDialog.Builder(ReportActivity.this);
-                    dialogPdf.setMessage("要生成pdf,文件吗?(默认保存到下载文件夹)");
+                    dialogPdf.setMessage("要生成pdf,文件吗?(保存到本地下载文件夹)");
                     dialogPdf.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -606,6 +626,8 @@ public class ReportActivity extends Activity {
             Toast.makeText(this, "请输入年龄", Toast.LENGTH_SHORT).show();
         else if(et_report_date.length() < 1)
             Toast.makeText(this, "请输入诊断时间", Toast.LENGTH_SHORT).show();
+        else if(et_report_phone.length() < 1)
+            Toast.makeText(this, "请输入手机号码", Toast.LENGTH_SHORT).show();
         else{
 //            dbUtil.insertDiagnoseInfo(et_report_name.getText().toString(), et_report_sex.getText().toString(),
 //                            et_report_age.getText().toString(), et_report_date.getText().toString(),
@@ -625,7 +647,8 @@ public class ReportActivity extends Activity {
                             et_report3.getText().toString(), et_report4.getText().toString(),
                             et_report5.getText().toString(), et_report6.getText().toString(),
                             et_report7.getText().toString(), tv_report7.getText().toString(),
-                            tv_report_analyze.getText().toString(), tv_report_diagnose.getText().toString());
+                            tv_report_analyze.getText().toString(), tv_report_diagnose.getText().toString(),tv_report_treat.getText().toString(),
+                            userPhotoUri.toString(),et_report_phone.getText().toString());
                 }
             }.start();
 
@@ -640,6 +663,10 @@ public class ReportActivity extends Activity {
     // 点击生成pdf 生成pdf的方法
     private void generatePdf() {
 //        verifyStoragePermissions(ReportActivity);
+        // 隐藏 保存和 生成pdf按钮
+
+
+
         PdfDocument document = new PdfDocument();//1.建立PdfDocument
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(linearLayout.getWidth(),linearLayout.getHeight(),1).create();
         PdfDocument.Page page = document.startPage(pageInfo);//2.建立新的page

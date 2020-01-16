@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/it_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/it_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/it_id"/>
+
+        <TextView
+            android:id="@+id/it_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="电话"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/it_name"/>
+
+        <TextView
+            android:id="@+id/it_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="诊断日期"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/it_phone"/>
+
+        <!--<Button-->
+            <!--android:id="@+id/it_btn"-->
+            <!--android:layout_width="70dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:text="搜索"-->
+            <!--android:textSize="16sp"-->
+            <!--android:layout_centerVertical="true"/>-->
+
+    </RelativeLayout>
+
+
+</LinearLayout>

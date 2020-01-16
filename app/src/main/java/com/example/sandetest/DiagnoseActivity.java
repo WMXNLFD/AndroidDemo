@@ -130,13 +130,13 @@ public class DiagnoseActivity extends Activity {
 //        System.out.println(timeStamp + "=====");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             //第二个参数为 包名.fileprovider
-            mImageUri = FileProvider.getUriForFile(this, "com.example.sandetest.DiagnoseActivity.fileprovider", mFilePath);
+            userPhotoUri = FileProvider.getUriForFile(this, "com.example.sandetest.DiagnoseActivity.fileprovider", mFilePath);
         }
         else{
-            mImageUri = Uri.fromFile(mFilePath);
+            userPhotoUri = Uri.fromFile(mFilePath);
         }
-        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
-        System.out.println("=====拍照返回图片路径=========:" + mImageUri);
+        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, userPhotoUri);
+        System.out.println("=====拍照返回图片路径=========:" + userPhotoUri);
         startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
 
 //        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
@@ -190,7 +190,7 @@ public class DiagnoseActivity extends Activity {
             iv_user_photo.setImageURI(data.getData());
             //保存图片uri
             userPhotoUri = data.getData();
-            userPhotoIsChoose = true;
+            userPhotoIsChoose = true; // 表示已选择照片
             System.out.println(userPhotoUri);
         }
         //获取拍摄图片的结果
@@ -205,12 +205,13 @@ public class DiagnoseActivity extends Activity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 photoPath = String.valueOf(mFilePath);
             }else{
-                photoPath = mImageUri.getEncodedPath();
+                photoPath = userPhotoUri.getEncodedPath();
             }
             Log.d("拍照返回图片路径:", photoPath);
             System.out.println("++++++拍照返回图片路径:" + photoPath);
             Uri photoUri = Uri.parse(photoPath);
             iv_user_photo.setImageURI(photoUri);
+            userPhotoIsChoose = true; // 表示已选择照片
         }
     }
 
