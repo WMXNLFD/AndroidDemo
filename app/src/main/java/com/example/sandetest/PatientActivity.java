@@ -80,7 +80,7 @@ public class PatientActivity extends Activity {
 //                            );
 
                             // SimpleAdapter简单适配器
-                            final List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+                             final List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
                             for(int i = 0; i < usersInfo.length; i += 4)
                             {
                                 HashMap<String, String>hashMap = new HashMap<String, String>();

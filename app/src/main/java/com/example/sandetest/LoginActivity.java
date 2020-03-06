@@ -63,7 +63,9 @@ public class LoginActivity extends Activity {
                 case R.id.btn_signup:
                     //点击注册按钮触发事件
                     //注册用户信息
-                    setAddUser();
+                    //setAddUser();
+                    Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.btn_login:
                     //点击登录按钮触发事件
@@ -79,9 +81,15 @@ public class LoginActivity extends Activity {
 
     private void setLoginUser() {
         if(et_user.length() < 1)
-            Toast.makeText(this, "请输入用户名", Toast.LENGTH_SHORT).show();
+        {
+            //btn_login.setEnabled(false);
+            Toast.makeText(this, "请输入账号", Toast.LENGTH_SHORT).show();
+        }
         else if(et_pass.length() < 1)
+        {
+            //btn_login.setEnabled(false);
             Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show();
+        }
         else {
             final Handler handler = new Handler(){
                 @Override
@@ -93,7 +101,7 @@ public class LoginActivity extends Activity {
                         Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                     }
                     else
-                        Toast.makeText(LoginActivity.this, "登录失败,用户名或密码错误。", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "登录失败,账号或密码错误。", Toast.LENGTH_SHORT).show();
                 }
             };
 
@@ -115,7 +123,7 @@ public class LoginActivity extends Activity {
 
     private void setAddUser() {
         if(et_user.length() < 1)
-            Toast.makeText(this, "请输入用户名", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "请输入账号", Toast.LENGTH_SHORT).show();
         else if(et_pass.length() < 1)
             Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show();
         else {

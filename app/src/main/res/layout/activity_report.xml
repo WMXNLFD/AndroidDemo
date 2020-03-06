@@ -2,22 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ReportActivity"
-    android:id="@+id/linearlayout">
+    tools:context=".ReportActivity">
 
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@drawable/bluesolid2"
         android:padding="10dp"
         android:text="@string/report_title"
-        android:textSize="25sp"
         android:textColor="@color/colorWhite"
-        android:background="@drawable/bluesolid2"/>
+        android:textSize="25sp"/>
 
     <GridLayout
         android:layout_width="match_parent"
@@ -31,40 +31,43 @@
             android:textColor="@color/colorBlack"/>
         <EditText
             android:id="@+id/et_report_name"
+            android:layout_width="70dp"
             android:layout_height="40dp"
+            android:singleLine="true"
             android:text="李某某"
-            android:textSize="15sp"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp"/>
         <TextView
             android:text="@string/report_sex"
-            android:paddingLeft="5dp"
             android:textColor="@color/colorBlack"/>
         <EditText
             android:id="@+id/et_report_sex"
+            android:layout_width="25dp"
             android:layout_height="40dp"
+            android:singleLine="true"
             android:text="男"
-            android:textSize="15sp"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp"/>
         <TextView
             android:text="@string/report_age"
-            android:paddingLeft="5dp"
             android:textColor="@color/colorBlack"/>
         <EditText
             android:id="@+id/et_report_age"
+            android:layout_width="25dp"
             android:layout_height="40dp"
+            android:singleLine="true"
             android:text="30"
-            android:textSize="15sp"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp"/>
         <TextView
             android:text="@string/report_date"
-            android:paddingLeft="5dp"
             android:textColor="@color/colorBlack"/>
         <EditText
             android:id="@+id/et_report_date"
             android:layout_height="40dp"
             android:text="2019-12-24"
-            android:textSize="15sp"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp"/>
     </GridLayout>
 
     <LinearLayout
@@ -78,181 +81,269 @@
             android:id="@+id/iv_pic1"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/diagnosepic"
             android:rotation="0"
-            android:scaleType="fitXY"
-            android:layout_weight="1" />
+            android:scaleType="fitXY" />
 
         <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginRight="0dp"
-            android:columnCount="4"
+            android:layout_weight="1"
+            android:columnCount="3"
             android:orientation="horizontal"
-            android:rowCount="8"
-            android:layout_weight="1">
+            android:rowCount="8">
 
             <TextView
-                android:layout_columnSpan="2"
+                android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_margin="1dp"
+                android:layout_marginLeft="5dp"
+                android:background="@color/colorBlue2"
+                android:paddingLeft="5dp"
                 android:text="手机号码"
                 android:textColor="@color/colorWhite"
-                android:background="@color/colorBlue2"
-                android:textSize="12sp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:layout_margin="1dp"/>
+                android:textSize="12sp"/>
 
             <EditText
                 android:id="@+id/et_report_phone"
+                android:layout_width="100dp"
                 android:layout_columnSpan="2"
                 android:background="@drawable/graysolid"
+                android:gravity="center"
                 android:hint="请填写手机号码"
+                android:inputType="number"
                 android:singleLine="true"
-                android:paddingLeft="10dp"
-                android:paddingRight="5dp"
                 android:textSize="12sp"/>
 
             <TextView
                 android:id="@+id/tv_report1"
-                android:layout_columnSpan="3"
-                android:layout_gravity="fill_horizontal"
+                android:layout_columnSpan="1"
+                android:layout_gravity="fill"
                 android:layout_margin="1dp"
+                android:layout_marginLeft="5dp"
                 android:background="@color/colorBlue2"
                 android:paddingLeft="5dp"
                 android:text="@string/report1"
                 android:textColor="@color/colorWhite"
                 android:textSize="17sp"/>
 
-            <EditText
-                android:id="@+id/et_report1"
+            <TextView
+                android:id="@+id/report_c1"
                 android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="1dp"
                 android:background="@drawable/graysolid"
+                android:gravity="center"
                 android:hint="颜色"
-                android:paddingLeft="5dp"
-                android:paddingRight="30dp"
                 android:textSize="17sp"/>
 
             <TextView
+                android:id="@+id/report_c1_1"
+                android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/graysolid"
+                android:gravity="center"
+                android:hint="颜色"
+                android:textSize="17sp" />
+
+            <TextView
                 android:id="@+id/tv_report2"
-                android:layout_columnSpan="3"
+                android:layout_columnSpan="1"
                 android:layout_gravity="fill"
                 android:layout_margin="1dp"
+                android:layout_marginLeft="5dp"
                 android:background="@color/colorBlue2"
                 android:paddingLeft="5dp"
                 android:text="@string/report2"
                 android:textColor="@color/colorWhite"
                 android:textSize="17sp" />
 
-            <EditText
-                android:id="@+id/et_report2"
+            <TextView
+                android:id="@+id/report_c2"
                 android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="1dp"
                 android:background="@drawable/graysolid"
+                android:gravity="center"
                 android:hint="颜色"
-                android:paddingLeft="5dp"
-                android:paddingRight="30dp"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/report_c2_1"
+                android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/graysolid"
+                android:gravity="center"
+                android:hint="颜色"
                 android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/tv_report3"
-                android:layout_columnSpan="3"
+                android:layout_columnSpan="1"
                 android:layout_gravity="fill"
                 android:layout_margin="1dp"
+                android:layout_marginLeft="5dp"
                 android:background="@color/colorBlue2"
                 android:paddingLeft="5dp"
                 android:text="@string/report3"
                 android:textColor="@color/colorWhite"
                 android:textSize="17sp" />
 
-            <EditText
-                android:id="@+id/et_report3"
+            <TextView
+                android:id="@+id/report_c3"
                 android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="5dp"
                 android:background="@drawable/graysolid"
+                android:gravity="center"
                 android:hint="颜色"
-                android:paddingLeft="5dp"
-                android:paddingRight="30dp"
-                android:textSize="17sp" />
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/report_c3_1"
+                android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/graysolid"
+                android:gravity="center"
+                android:hint="颜色"
+                android:textSize="17sp"/>
 
             <TextView
                 android:id="@+id/tv_report4"
-                android:layout_columnSpan="3"
+                android:layout_columnSpan="1"
                 android:layout_gravity="fill"
                 android:layout_margin="1dp"
+                android:layout_marginLeft="5dp"
                 android:background="@color/colorBlue2"
                 android:paddingLeft="5dp"
                 android:text="@string/report4"
                 android:textColor="@color/colorWhite"
                 android:textSize="17sp" />
 
-            <EditText
-                android:id="@+id/et_report4"
+            <TextView
+                android:id="@+id/report_c4"
                 android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="5dp"
                 android:background="@drawable/graysolid"
+                android:gravity="center"
                 android:hint="颜色"
-                android:paddingLeft="5dp"
-                android:paddingRight="30dp"
-                android:textSize="17sp" />
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/report_c4_1"
+                android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/graysolid"
+                android:gravity="center"
+                android:hint="颜色"
+                android:textSize="17sp"/>
 
             <TextView
                 android:id="@+id/tv_report5"
-                android:layout_columnSpan="3"
+                android:layout_columnSpan="1"
                 android:layout_gravity="fill"
                 android:layout_margin="1dp"
+                android:layout_marginLeft="5dp"
                 android:background="@color/colorBlue2"
                 android:paddingLeft="5dp"
                 android:text="@string/report5"
                 android:textColor="@color/colorWhite"
                 android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/et_report5"
+            <TextView
+                android:id="@+id/report_c5"
                 android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="5dp"
                 android:background="@drawable/graysolid"
+                android:gravity="center"
                 android:hint="颜色"
-                android:paddingLeft="5dp"
-                android:paddingRight="30dp"
-                android:textSize="17sp" />
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/report_c5_1"
+                android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/graysolid"
+                android:gravity="center"
+                android:hint="颜色"
+                android:textSize="17sp"/>
 
             <TextView
                 android:id="@+id/tv_report6"
-                android:layout_columnSpan="3"
+                android:layout_columnSpan="1"
                 android:layout_gravity="fill"
                 android:layout_margin="1dp"
+                android:layout_marginLeft="5dp"
                 android:background="@color/colorBlue2"
                 android:paddingLeft="5dp"
                 android:text="@string/report6"
                 android:textColor="@color/colorWhite"
                 android:textSize="17sp" />
 
-            <EditText
-                android:id="@+id/et_report6"
+            <TextView
+                android:id="@+id/report_c6"
                 android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="5dp"
                 android:background="@drawable/graysolid"
+                android:gravity="center"
                 android:hint="颜色"
-                android:paddingLeft="5dp"
-                android:paddingRight="30dp"
-                android:textSize="17sp" />
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/report_c6_1"
+                android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/graysolid"
+                android:gravity="center"
+                android:hint="颜色"
+                android:textSize="17sp"/>
 
             <TextView
                 android:id="@+id/tv_report7"
-                android:layout_columnSpan="3"
+                android:layout_columnSpan="1"
                 android:layout_gravity="fill"
                 android:layout_margin="1dp"
+                android:layout_marginLeft="5dp"
                 android:background="@color/colorBlue2"
                 android:paddingLeft="5dp"
                 android:text="@string/report7"
                 android:textColor="@color/colorWhite"
                 android:textSize="17sp" />
 
-            <EditText
-                android:id="@+id/et_report7"
+            <TextView
+                android:id="@+id/report_c7"
                 android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="5dp"
                 android:background="@drawable/graysolid"
                 android:hint="颜色"
-                android:paddingLeft="5dp"
-                android:paddingRight="30dp"
-                android:textSize="17sp" />
+                android:textSize="17sp"/>
+
+            <TextView
+                android:id="@+id/report_c7_1"
+                android:layout_columnSpan="1"
+                android:layout_gravity="fill"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/graysolid"
+                android:gravity="center"
+                android:hint="颜色"
+                android:textSize="17sp"/>
         </GridLayout>
 
         <!--<ImageView-->
@@ -425,13 +516,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/analyze"
-        android:textSize="11sp"
-        android:textColor="@color/colorBlack"/>
+        android:textColor="@color/colorBlack"
+        android:textSize="10sp"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -442,14 +533,14 @@
         android:id="@+id/tv_report_diagnose"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="1dp"
         android:layout_marginRight="10dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/diagnose"
-        android:textSize="11sp"
-        android:textColor="@color/colorBlack"/>
+        android:textColor="@color/colorBlack"
+        android:textSize="10sp"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -460,14 +551,14 @@
         android:id="@+id/tv_report_treat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="1dp"
         android:layout_marginRight="10dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/treat"
-        android:textSize="11sp"
-        android:textColor="@color/colorBlack"/>
+        android:textColor="@color/colorBlack"
+        android:textSize="10sp"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -478,25 +569,25 @@
         android:id="@+id/tv_report_cases"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="1dp"
         android:layout_marginRight="10dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/cases"
-        android:textSize="10sp"
-        android:textColor="@color/colorBlack"/>
+        android:textColor="@color/colorBlack"
+        android:textSize="10sp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="0dp"
         android:layout_marginRight="10dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/process"
-        android:textSize="11sp"
-        android:textColor="@color/colorBlack"/>
+        android:textColor="@color/colorBlack"
+        android:textSize="10sp"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -507,14 +598,14 @@
         android:id="@+id/tv_report_opinion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="1dp"
         android:layout_marginRight="10dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/opinion"
-        android:textSize="11sp"
-        android:textColor="@color/colorBlack"/>
+        android:textColor="@color/colorBlack"
+        android:textSize="10sp"/>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -525,57 +616,57 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:text="@string/doctorview"
-        android:textSize="11sp"
-        android:textColor="@color/colorBlack"/>
+        android:textColor="@color/colorBlack"
+        android:textSize="10sp"/>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_report_savedb"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_weight="1"
+            android:layout_gravity="bottom"
             android:layout_marginLeft="30dp"
+            android:layout_weight="1"
             android:background="@drawable/bluesolid"
             android:text="@string/btn_savedb"
-            android:textSize="15sp"
             android:textColor="@color/colorWhite"
-            android:layout_gravity="bottom"/>
+            android:textSize="15sp"/>
         <Button
             android:id="@+id/btn_report_pdf"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_weight="1"
+            android:layout_gravity="bottom"
             android:layout_marginLeft="30dp"
+            android:layout_weight="1"
             android:background="@drawable/bluesolid"
             android:text="@string/btn_pdf"
-            android:textSize="15sp"
             android:textColor="@color/colorWhite"
-            android:layout_gravity="bottom"/>
+            android:textSize="15sp"/>
         <Button
             android:id="@+id/btn_report_edit"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_weight="1"
+            android:layout_gravity="bottom"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:layout_weight="1"
             android:background="@drawable/bluesolid"
             android:text="@string/btn_diagnose"
-            android:textSize="15sp"
             android:textColor="@color/colorWhite"
-            android:layout_gravity="bottom"/>
+            android:textSize="15sp"/>
 
     </LinearLayout>
 

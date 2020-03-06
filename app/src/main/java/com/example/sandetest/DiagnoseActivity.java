@@ -32,7 +32,9 @@ import java.util.Date;
 public class DiagnoseActivity extends Activity {
 
     private TextView tv_p1,tv_p2,tv_p3,tv_p4,tv_p5,tv_p6,tv_p7;
-    private EditText et_1,et_2,et_3,et_4,et_5,et_6,et_7;
+    //private EditText et_1,et_2,et_3,et_4,et_5,et_6,et_7; //****************************
+    private TextView tv_c1, tv_c2, tv_c3, tv_c4, tv_c5, tv_c6, tv_c7;
+    private TextView tv_c1_1, tv_c2_1, tv_c3_1, tv_c4_1, tv_c5_1, tv_c6_1, tv_c7_1;
     private Button btn_decide_color;
     private ImageView iv_user_photo, iv_user_takephoto;
     Uri userPhotoUri, mImageUri;
@@ -53,13 +55,27 @@ public class DiagnoseActivity extends Activity {
     //点击事件 的设置在这里
     private void setListeners() {
         OnClick onClick = new OnClick();
-        tv_p1.setOnClickListener(onClick);
-        tv_p2.setOnClickListener(onClick);
-        tv_p3.setOnClickListener(onClick);
-        tv_p4.setOnClickListener(onClick);
-        tv_p5.setOnClickListener(onClick);
-        tv_p6.setOnClickListener(onClick);
+        //tv_p1.setOnClickListener(onClick);
+        //tv_p2.setOnClickListener(onClick);
+        //tv_p3.setOnClickListener(onClick);
+        //tv_p4.setOnClickListener(onClick);
+        //tv_p5.setOnClickListener(onClick);
+        //tv_p6.setOnClickListener(onClick);
         tv_p7.setOnClickListener(onClick);
+        tv_c1.setOnClickListener(onClick);
+        tv_c2.setOnClickListener(onClick);
+        tv_c3.setOnClickListener(onClick);
+        tv_c4.setOnClickListener(onClick);
+        tv_c5.setOnClickListener(onClick);
+        tv_c6.setOnClickListener(onClick);
+        tv_c7.setOnClickListener(onClick);
+        tv_c1_1.setOnClickListener(onClick);
+        tv_c2_1.setOnClickListener(onClick);
+        tv_c3_1.setOnClickListener(onClick);
+        tv_c4_1.setOnClickListener(onClick);
+        tv_c5_1.setOnClickListener(onClick);
+        tv_c6_1.setOnClickListener(onClick);
+        tv_c7_1.setOnClickListener(onClick);
         //确定按钮事件
         btn_decide_color.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,13 +101,21 @@ public class DiagnoseActivity extends Activity {
                     //获取其他部位的选择信息并传送
                     intent.putExtra("diagnoseOther", tv_p7.getText().toString());
                     //获取颜色信息并传送
-                    intent.putExtra("diagnoseColor1", et_1.getText().toString());
-                    intent.putExtra("diagnoseColor2", et_2.getText().toString());
-                    intent.putExtra("diagnoseColor3", et_3.getText().toString());
-                    intent.putExtra("diagnoseColor4", et_4.getText().toString());
-                    intent.putExtra("diagnoseColor5", et_5.getText().toString());
-                    intent.putExtra("diagnoseColor6", et_6.getText().toString());
-                    intent.putExtra("diagnoseColor7", et_7.getText().toString());
+                    intent.putExtra("diagnoseColor1", tv_c1.getText().toString());
+                    intent.putExtra("diagnoseColor2", tv_c2.getText().toString());
+                    intent.putExtra("diagnoseColor3", tv_c3.getText().toString());
+                    intent.putExtra("diagnoseColor4", tv_c4.getText().toString());
+                    intent.putExtra("diagnoseColor5", tv_c5.getText().toString());
+                    intent.putExtra("diagnoseColor6", tv_c6.getText().toString());
+                    intent.putExtra("diagnoseColor7", tv_c7.getText().toString());
+                    //获取颜色2的信息并传送
+                    intent.putExtra("diagnoseColor1_1", tv_c1_1.getText().toString());
+                    intent.putExtra("diagnoseColor2_1", tv_c2_1.getText().toString());
+                    intent.putExtra("diagnoseColor3_1", tv_c3_1.getText().toString());
+                    intent.putExtra("diagnoseColor4_1", tv_c4_1.getText().toString());
+                    intent.putExtra("diagnoseColor5_1", tv_c5_1.getText().toString());
+                    intent.putExtra("diagnoseColor6_1", tv_c6_1.getText().toString());
+                    intent.putExtra("diagnoseColor7_1", tv_c7_1.getText().toString());
                     //从Diagnose 跳到 Report 页面 发送一个信号标志 防止直接点击报告获取不到信息
                     intent.putExtra("diagnoseToReport", 1);
                     startActivity(intent);
@@ -223,13 +247,20 @@ public class DiagnoseActivity extends Activity {
         tv_p5 = findViewById(R.id.tv_p5);
         tv_p6 = findViewById(R.id.tv_p6);
         tv_p7 = findViewById(R.id.tv_p7);
-        et_1 = findViewById(R.id.et_1);
-        et_2 = findViewById(R.id.et_2);
-        et_3 = findViewById(R.id.et_3);
-        et_4 = findViewById(R.id.et_4);
-        et_5 = findViewById(R.id.et_5);
-        et_6 = findViewById(R.id.et_6);
-        et_7 = findViewById(R.id.et_7);
+        tv_c1 = findViewById(R.id.tv_color1);
+        tv_c2 = findViewById(R.id.tv_color2);
+        tv_c3 = findViewById(R.id.tv_color3);
+        tv_c4 = findViewById(R.id.tv_color4);
+        tv_c5 = findViewById(R.id.tv_color5);
+        tv_c6 = findViewById(R.id.tv_color6);
+        tv_c7 = findViewById(R.id.tv_color7);
+        tv_c1_1 = findViewById(R.id.tv_color1_1);
+        tv_c2_1 = findViewById(R.id.tv_color2_1);
+        tv_c3_1 = findViewById(R.id.tv_color3_1);
+        tv_c4_1 = findViewById(R.id.tv_color4_1);
+        tv_c5_1 = findViewById(R.id.tv_color5_1);
+        tv_c6_1 = findViewById(R.id.tv_color6_1);
+        tv_c7_1 = findViewById(R.id.tv_color7_1);
         btn_decide_color = findViewById(R.id.btn_decide_color);
 //        et_name = findViewById(R.id.et_name);
         iv_user_photo = findViewById(R.id.iv_user_photo);
@@ -240,37 +271,40 @@ public class DiagnoseActivity extends Activity {
     private class OnClick implements View.OnClickListener{
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.tv_p1:
-                    Toast.makeText(DiagnoseActivity.this, "肺区", Toast.LENGTH_SHORT).show();
-                    setColor(R.id.tv_p1); //选择颜色并显示
-                    break;
-                case R.id.tv_p2:
-                    Toast.makeText(DiagnoseActivity.this, "心区", Toast.LENGTH_SHORT).show();
-                    setColor(R.id.tv_p2);
-                    break;
-                case R.id.tv_p3:
-                    Toast.makeText(DiagnoseActivity.this, "肝胆区", Toast.LENGTH_SHORT).show();
-                    setColor(R.id.tv_p3);
-                    break;
-                case R.id.tv_p4:
-                    Toast.makeText(DiagnoseActivity.this, "脾胃区", Toast.LENGTH_SHORT).show();
-                    setColor(R.id.tv_p4);
-                    break;
-                case R.id.tv_p5:
-                    Toast.makeText(DiagnoseActivity.this, "肾区", Toast.LENGTH_SHORT).show();
-                    setColor(R.id.tv_p5);
-                    break;
-                case R.id.tv_p6:
-                    Toast.makeText(DiagnoseActivity.this, "生殖区", Toast.LENGTH_SHORT).show();
-                    setColor(R.id.tv_p6);
-                    break;
-                case R.id.tv_p7:
-                    Toast.makeText(DiagnoseActivity.this, "其他部位", Toast.LENGTH_SHORT).show();
-                    selectSite(); //选择其他部位
-                    //setColor(R.id.tv_p7);
-                    break;
-            }
+            if(v.getId() == R.id.tv_p7)
+                selectSite();
+            else setColor(v.getId());
+//            switch (v.getId()) {
+//                case R.id.tv_color1:
+//                    Toast.makeText(DiagnoseActivity.this, "肺区", Toast.LENGTH_SHORT).show();
+//                    setColor(R.id.tv_color1); //选择颜色并显示
+//                    break;
+//                case R.id.tv_color2:
+//                    Toast.makeText(DiagnoseActivity.this, "心区", Toast.LENGTH_SHORT).show();
+//                    setColor(R.id.tv_p2);
+//                    break;
+//                case R.id.tv_p3:
+//                    Toast.makeText(DiagnoseActivity.this, "肝胆区", Toast.LENGTH_SHORT).show();
+//                    setColor(R.id.tv_p3);
+//                    break;
+//                case R.id.tv_p4:
+//                    Toast.makeText(DiagnoseActivity.this, "脾胃区", Toast.LENGTH_SHORT).show();
+//                    setColor(R.id.tv_p4);
+//                    break;
+//                case R.id.tv_p5:
+//                    Toast.makeText(DiagnoseActivity.this, "肾区", Toast.LENGTH_SHORT).show();
+//                    setColor(R.id.tv_p5);
+//                    break;
+//                case R.id.tv_p6:
+//                    Toast.makeText(DiagnoseActivity.this, "生殖区", Toast.LENGTH_SHORT).show();
+//                    setColor(R.id.tv_p6);
+//                    break;
+//                case R.id.tv_p7:
+//                    Toast.makeText(DiagnoseActivity.this, "其他部位", Toast.LENGTH_SHORT).show();
+//                    selectSite(); //选择其他部位
+//                    //setColor(R.id.tv_p7);
+//                    break;
+//            }
         }
     }
 
@@ -292,7 +326,7 @@ public class DiagnoseActivity extends Activity {
             public void onClick(DialogInterface dialog, int which) {
                 //根据选择的部位设置其他部位的名字，并设置颜色
                 tv_p7.setText(items[selectNum[0]]);
-                setColor(R.id.tv_p7);
+                //setColor(R.id.tv_p7);
             }
         });
         builder.create().show();
@@ -316,20 +350,34 @@ public class DiagnoseActivity extends Activity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //根据选择的id 来决定在哪一个et 上填写颜色
-                if(tv_pnum == R.id.tv_p1)
-                    et_1.setText(items[colorNum[0]]);
-                else if(tv_pnum == R.id.tv_p2)
-                    et_2.setText(items[colorNum[0]]);
-                else if(tv_pnum == R.id.tv_p3)
-                    et_3.setText(items[colorNum[0]]);
-                else if(tv_pnum == R.id.tv_p4)
-                    et_4.setText(items[colorNum[0]]);
-                else if(tv_pnum == R.id.tv_p5)
-                    et_5.setText(items[colorNum[0]]);
-                else if(tv_pnum == R.id.tv_p6)
-                    et_6.setText(items[colorNum[0]]);
-                else if(tv_pnum == R.id.tv_p7)
-                    et_7.setText(items[colorNum[0]]);
+                if(tv_pnum == R.id.tv_color1)
+                    tv_c1.setText(items[colorNum[0]]);
+                else if(tv_pnum == R.id.tv_color2)
+                    tv_c2.setText(items[colorNum[0]]);
+                else if(tv_pnum == R.id.tv_color3)
+                    tv_c3.setText(items[colorNum[0]]);
+                else if(tv_pnum == R.id.tv_color4)
+                    tv_c4.setText(items[colorNum[0]]);
+                else if(tv_pnum == R.id.tv_color5)
+                    tv_c5.setText(items[colorNum[0]]);
+                else if(tv_pnum == R.id.tv_color6)
+                    tv_c6.setText(items[colorNum[0]]);
+                else if(tv_pnum == R.id.tv_color7)
+                    tv_c7.setText(items[colorNum[0]]);
+                else if(tv_pnum == R.id.tv_color1_1)  //第二颜色
+                    tv_c1_1.setText(items[colorNum[0]]);
+                else if(tv_pnum == R.id.tv_color2_1)  //第二颜色
+                    tv_c2_1.setText(items[colorNum[0]]);
+                else if(tv_pnum == R.id.tv_color3_1)  //第二颜色
+                    tv_c3_1.setText(items[colorNum[0]]);
+                else if(tv_pnum == R.id.tv_color4_1)  //第二颜色
+                    tv_c4_1.setText(items[colorNum[0]]);
+                else if(tv_pnum == R.id.tv_color5_1)  //第二颜色
+                    tv_c5_1.setText(items[colorNum[0]]);
+                else if(tv_pnum == R.id.tv_color6_1)  //第二颜色
+                    tv_c6_1.setText(items[colorNum[0]]);
+                else if(tv_pnum == R.id.tv_color7_1)  //第二颜色
+                    tv_c7_1.setText(items[colorNum[0]]);
             }
         }); //确定按钮显示及其按键监听器
         builder.create().show();//创建并显示对话框

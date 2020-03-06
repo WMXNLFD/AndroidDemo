@@ -23,7 +23,7 @@ public class DBUtil{
     //定义SoapAction与命名空间,作为常量
     private static final String nameSpace = "http://tempuri.org/";
     //url相关参数
-//    private static final String url = "http://192.168.6.186:44338/WebService1.asmx";
+//    private static final String url = "http://192.168.6.186:44338/WebService1.asmx"; //本地
     private static final String url = "http://165872u96i.imwork.net:16497/WebService1.asmx";
     /**
      * webservice 调用方法各种参数
@@ -31,6 +31,9 @@ public class DBUtil{
     //增加一条用户信息
     private static final String addUserMethod = "insertUserInfo";
     private static final String addUserSoapAction = "http://tempuri.org/insertUserInfo";
+    //2.0注册页面增加用户信息
+    private static final String registerUserMethod = "registerNewUser";
+    private static final String registerUserSoapAction = "http://tempuri.org/registerNewUser";
     //增加用户诊断结果的信息
     private static final String addDiagnoseMethod = "insertDiagnoseInfo";
     private static final String addDiagnoseSoapAction = "http://tempuri.org/insertDiagnoseInfo";
@@ -196,7 +199,10 @@ public class DBUtil{
      */
     public void addDiagnose(String Name, String Sex, String Age, String Date, String Color1,
                             String Color2, String Color3,String Color4, String Color5, String Color6,
-                            String Color7, String OtherParts, String Analyze, String Result, String Treat, String Image, String Phone)
+                            String Color7, String Color1_1, String Color2_1, String Color3_1,
+                            String Color4_1, String Color5_1, String Color6_1, String Color7_1,
+                            String OtherParts, String Analyze, String Result, String Treat,
+                            String Cases, String Opinion, String Image, String Phone)
     {
         SoapObject request = new SoapObject(nameSpace, addDiagnoseMethod);
         //设置参数
@@ -205,10 +211,15 @@ public class DBUtil{
         request.addProperty("Color1", Color1);request.addProperty("Color2", Color2);
         request.addProperty("Color3", Color3);request.addProperty("Color4", Color4);
         request.addProperty("Color5", Color5);request.addProperty("Color6", Color6);
-        request.addProperty("Color7", Color7);request.addProperty("OtherParts", OtherParts);
-        request.addProperty("Analyze", Analyze);request.addProperty("Result", Result);
-        request.addProperty("Treat", Treat);request.addProperty("Image", Image);
-        request.addProperty("Phone", Phone);
+        request.addProperty("Color7", Color7);
+        request.addProperty("Color1_1", Color1_1);request.addProperty("Color2_1", Color2_1);
+        request.addProperty("Color3_1", Color3_1);request.addProperty("Color4_1", Color4_1);
+        request.addProperty("Color5_1", Color5_1);request.addProperty("Color6_1", Color6_1);
+        request.addProperty("Color7_1", Color7_1);
+        request.addProperty("OtherParts", OtherParts);request.addProperty("Analyze", Analyze);
+        request.addProperty("Result", Result);request.addProperty("Treat", Treat);
+        request.addProperty("Cases", Cases);request.addProperty("Opinion", Opinion);
+        request.addProperty("Image", Image);request.addProperty("Phone", Phone);
 
         //创建SoapSerializationEnvelope 对象，同时指定soap版本号(之前在wsdl中看到的)
         SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapSerializationEnvelope.VER11);
@@ -327,6 +338,46 @@ public class DBUtil{
             System.out.println("调用WebService服务失败");
         }
     }
+
+    /**
+     * 2.0 注册页面增加用户注册信息
+     * @param registerPhone 用户手机号码 用作登录用户名
+     * @param registerPassword 用户密码
+     * @param registerName 用户姓名
+     * @param registerId 用户身份证
+     * @param registerClinicName 用户诊所名称
+     * @param registerClinicAddress 用户诊所地址
+     * @param registerHostId 用户主机编号
+     * @param registerSex 用户性别
+     */
+    public void registerUser(String registerPhone, String registerPassword, String registerName,
+                             String registerId, String registerClinicName, String registerClinicAddress,
+                             String registerHostId, String registerSex) {
+        SoapObject request = new SoapObject(nameSpace, registerUserMethod);
+        //设置参数
+        request.addProperty("registerPhone", registerPhone);request.addProperty("registerPassword", registerPassword);
+        request.addProperty("registerName", registerName);request.addProperty("registerId", registerId);
+        request.addProperty("registerClinicName", registerClinicName);request.addProperty("registerClinicAddress", registerClinicAddress);
+        request.addProperty("registerHostId", registerHostId);request.addProperty("registerSex", registerSex);
+
+        //创建SoapSerializationEnvelope 对象，同时指定soap版本号(之前在wsdl中看到的)
+        SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapSerializationEnvelope.VER11);
+        envelope.bodyOut = request ;//由于是发送请求，所以是设置bodyOut
+        envelope.dotNet = true;//由于是.net开发的webservice，所以这里要设置为true
+
+        HttpTransportSE httpTransportSE = new HttpTransportSE(url);
+        System.out.println("服务设置完毕,准备开启服务");
+
+        try {
+            httpTransportSE.call(registerUserSoapAction, envelope);
+            System.out.println("调用WebService服务成功");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("调用WebService服务失败");
+        }
+    }
+
+
 
     /**
      * 根据名字搜索一位病人的Uid、名字、电话、诊断日期信息
@@ -448,7 +499,11 @@ public class DBUtil{
         for(int i = 0; i < soapChild.getPropertyCount(); i ++)
         {
             String soapChilds = soapChild.getProperty(i).toString();
-            message[i] = soapChilds;
+            //bug 返回的数据为空
+            //修复 if(soapChilds.equals("anyType{}")) soapChilds = "无";  //处理页面显示anyType的问题 返回空 则显示空
+            if(soapChilds.equals("anyType{}"))
+                message[i] = "";
+            else message[i] = soapChilds;
         }
 
         return message;

@@ -39,10 +39,12 @@ public class ReportActivity extends Activity {
 
     private ImageView iv_pic1;
     private Button btn_report_savedb, btn_report_pdf, btn_report_edit;
-    private TextView tv_report7, tv_report_analyze, tv_report_diagnose, tv_report_treat, tv_report_cases,
+    private TextView tv_report7, tv_report_analyze, tv_report_diagnose, tv_report_treat, tv_report_cases, tv_report_opinion,
             tv_report1,tv_report2,tv_report3,tv_report4,tv_report5,tv_report6;
     private EditText et_report1, et_report2, et_report3, et_report4, et_report5, et_report6, et_report7,
             et_report_name, et_report_sex, et_report_age, et_report_date, et_report_phone;
+    private TextView report_c1, report_c2, report_c3, report_c4, report_c5, report_c6, report_c7;
+    private TextView report_c1_1, report_c2_1, report_c3_1, report_c4_1, report_c5_1, report_c6_1, report_c7_1; //颜色2
     private LinearLayout linearLayout;
     private DBUtil dbUtil;
 //    DBUtil dbUtil = new DBUtil();//创建数据库类
@@ -68,9 +70,9 @@ public class ReportActivity extends Activity {
         //从message页面进入报告，从数据库获取用户诊断数据
         if(messageToReport == 2) {
             getRecentUserInfo();
-            System.out.println(et_report1.getText() + "-=-=---=-=************-=-=---=");
-            getTreatAndCasesInfo();
-            System.out.println(et_report1.getText() + "--=-=-=---=");
+            //System.out.println(report_c1.getText() + "-=-=---=-=************-=-=---=");
+            //getTreatAndCasesInfo(); 20200224把所有信息存进数据库就不用使用这段代码了=。=
+            //System.out.println(report_c1.getText() + "--=-=-=---=");
             btn_report_savedb.setVisibility(View.INVISIBLE);
             btn_report_edit.setVisibility(View.INVISIBLE);
 //            btn_report_edit.setVisibility(View.INVISIBLE);
@@ -80,11 +82,11 @@ public class ReportActivity extends Activity {
             getOneUserInfo();
             //中医治疗和调理方案就不存入数据库了，直接根据数据库存的颜色，调用方法采集数据，减少代码复杂度
             //我真是太聪明了=。=
-            getTreatAndCasesInfo();
+            //getTreatAndCasesInfo();
             btn_report_savedb.setVisibility(View.INVISIBLE);
             btn_report_edit.setVisibility(View.INVISIBLE); //不显示，并且不保留所占空间
         }
-        System.out.println(et_report1.getText() + "在外面-=-=---=-=************-=-=---=");
+        //System.out.println(report_c1.getText() + "在外面-=-=---=-=************-=-=---=");
     }
 
     // 初始化方法 findViewById
@@ -97,18 +99,28 @@ public class ReportActivity extends Activity {
         et_report_date = findViewById(R.id.et_report_date);
         et_report_phone = findViewById(R.id.et_report_phone);
 
-        et_report1 = findViewById(R.id.et_report1);
-        et_report2 = findViewById(R.id.et_report2);
-        et_report3 = findViewById(R.id.et_report3);
-        et_report4 = findViewById(R.id.et_report4);
-        et_report5 = findViewById(R.id.et_report5);
-        et_report6 = findViewById(R.id.et_report6);
-        et_report7 = findViewById(R.id.et_report7);
+        report_c1 = findViewById(R.id.report_c1);
+        report_c2 = findViewById(R.id.report_c2);
+        report_c3 = findViewById(R.id.report_c3);
+        report_c4 = findViewById(R.id.report_c4);
+        report_c5 = findViewById(R.id.report_c5);
+        report_c6 = findViewById(R.id.report_c6);
+        report_c7 = findViewById(R.id.report_c7);
+        //颜色2
+        report_c1_1 = findViewById(R.id.report_c1_1);
+        report_c2_1 = findViewById(R.id.report_c2_1);
+        report_c3_1 = findViewById(R.id.report_c3_1);
+        report_c4_1 = findViewById(R.id.report_c4_1);
+        report_c5_1 = findViewById(R.id.report_c5_1);
+        report_c6_1 = findViewById(R.id.report_c6_1);
+        report_c7_1 = findViewById(R.id.report_c7_1);
         tv_report7 = findViewById(R.id.tv_report7);
+
         tv_report_analyze = findViewById(R.id.tv_report_analyze);
         tv_report_diagnose = findViewById(R.id.tv_report_diagnose);
         tv_report_treat = findViewById(R.id.tv_report_treat);
         tv_report_cases = findViewById(R.id.tv_report_cases);
+        tv_report_opinion = findViewById(R.id.tv_report_opinion);
 
         btn_report_savedb = findViewById(R.id.btn_report_savedb);
         btn_report_pdf = findViewById(R.id.btn_report_pdf);
@@ -138,24 +150,37 @@ public class ReportActivity extends Activity {
         et_report_sex.setText(oneUserInfo[2]);
         et_report_age.setText(oneUserInfo[3]);
         et_report_date.setText(oneUserInfo[4]);
-        et_report1.setText(oneUserInfo[5]);
-        et_report2.setText(oneUserInfo[6]);
-        et_report3.setText(oneUserInfo[7]);
-        et_report4.setText(oneUserInfo[8]);
-        et_report5.setText(oneUserInfo[9]);
-        et_report6.setText(oneUserInfo[10]);
-        et_report7.setText(oneUserInfo[11]);
-        tv_report7.setText(oneUserInfo[12]);
-        tv_report_analyze.setText(oneUserInfo[13]);
-        tv_report_diagnose.setText(oneUserInfo[14]);
-        userPhotoUri = Uri.parse(oneUserInfo[18]);
+        report_c1.setText(oneUserInfo[5]);
+        report_c2.setText(oneUserInfo[6]);
+        report_c3.setText(oneUserInfo[7]);
+        report_c4.setText(oneUserInfo[8]);
+        report_c5.setText(oneUserInfo[9]);
+        report_c6.setText(oneUserInfo[10]);
+        report_c7.setText(oneUserInfo[11]);
+        //颜色2
+        report_c1_1.setText(oneUserInfo[12]);
+        report_c2_1.setText(oneUserInfo[13]);
+        report_c3_1.setText(oneUserInfo[14]);
+        report_c4_1.setText(oneUserInfo[15]);
+        report_c5_1.setText(oneUserInfo[16]);
+        report_c6_1.setText(oneUserInfo[17]);
+        report_c7_1.setText(oneUserInfo[18]);
+        //..........
+        //其他部位
+        tv_report7.setText(oneUserInfo[19]);
+        tv_report_analyze.setText(oneUserInfo[20]);
+        tv_report_diagnose.setText(oneUserInfo[21]);
+        tv_report_treat.setText(oneUserInfo[22]);
+        tv_report_cases.setText(oneUserInfo[23]);
+        tv_report_opinion.setText(oneUserInfo[24]);
+        userPhotoUri = Uri.parse(oneUserInfo[25]);  //获取图片地址
         try {
             iv_pic1.setImageURI(userPhotoUri); //String 转为Uri
         }catch (Exception e)
         {
             iv_pic1.setImageURI(null);
         }
-        et_report_phone.setText(oneUserInfo[19]);
+        et_report_phone.setText(oneUserInfo[26]);
 //        for(int i = 0; i < oneUserInfo.length; i ++)
 //            System.out.println(oneUserInfo[i] + "=-=-=-=-=");
     }
@@ -171,19 +196,30 @@ public class ReportActivity extends Activity {
                 et_report_sex.setText(recentUserInfo[2]);
                 et_report_age.setText(recentUserInfo[3]);
                 et_report_date.setText(recentUserInfo[4]);
-                et_report1.setText(recentUserInfo[5]);
-                et_report2.setText(recentUserInfo[6]);
-                et_report3.setText(recentUserInfo[7]);
-                et_report4.setText(recentUserInfo[8]);
-                et_report5.setText(recentUserInfo[9]);
-                et_report6.setText(recentUserInfo[10]);
-                et_report7.setText(recentUserInfo[11]);
-                tv_report7.setText(recentUserInfo[12]);
-                tv_report_analyze.setText(recentUserInfo[13]);
-                tv_report_diagnose.setText(recentUserInfo[14]);
-                tv_report_treat.setText(recentUserInfo[15]); //设置中医治疗原则
-                System.out.println(recentUserInfo[18] + "[[[[[[");
-                userPhotoUri = Uri.parse(recentUserInfo[18]);
+                report_c1.setText(recentUserInfo[5]);
+                report_c2.setText(recentUserInfo[6]);
+                report_c3.setText(recentUserInfo[7]);
+                report_c4.setText(recentUserInfo[8]);
+                report_c5.setText(recentUserInfo[9]);
+                report_c6.setText(recentUserInfo[10]);
+                report_c7.setText(recentUserInfo[11]);
+                //颜色2
+                report_c1_1.setText(recentUserInfo[12]);
+                report_c2_1.setText(recentUserInfo[13]);
+                report_c3_1.setText(recentUserInfo[14]);
+                report_c4_1.setText(recentUserInfo[15]);
+                report_c5_1.setText(recentUserInfo[16]);
+                report_c6_1.setText(recentUserInfo[17]);
+                report_c7_1.setText(recentUserInfo[18]);
+                //.......
+                tv_report7.setText(recentUserInfo[19]);
+                tv_report_analyze.setText(recentUserInfo[20]);
+                tv_report_diagnose.setText(recentUserInfo[21]);
+                tv_report_treat.setText(recentUserInfo[22]); //设置中医治疗原则
+                tv_report_cases.setText(recentUserInfo[23]);
+                tv_report_opinion.setText(recentUserInfo[24]); // 设置医嘱
+                System.out.println(recentUserInfo[25] + "[[[[[[");
+                userPhotoUri = Uri.parse(recentUserInfo[25]);
                 try {
                     iv_pic1.setImageURI(userPhotoUri); //String 转为Uri
                 }catch (Exception e)
@@ -191,7 +227,7 @@ public class ReportActivity extends Activity {
                     iv_pic1.setImageURI(null);
                 }
 //                iv_pic1.setImageURI(userPhotoUri); //String 转为Uri
-                et_report_phone.setText(recentUserInfo[19]);
+                et_report_phone.setText(recentUserInfo[26]);
 //                for(int i = 0; i < recentUserInfo.length;  i++)
 //                    System.out.println(recentUserInfo[i] + "==========");
 
@@ -211,13 +247,21 @@ public class ReportActivity extends Activity {
         String reportPart5 = tv_report5.getText().toString().substring(0,2);
         String reportPart6 = tv_report6.getText().toString().substring(0,3);
 
-        String reportColor1 = et_report1.getText().toString();
-        String reportColor2 = et_report2.getText().toString();
-        String reportColor3 = et_report3.getText().toString();
-        String reportColor4 = et_report4.getText().toString();
-        String reportColor5 = et_report5.getText().toString();
-        String reportColor6 = et_report6.getText().toString();
-        System.out.println(et_report1.getText() + "-=-=---=-=-=-=---=");
+        String reportColor1 = report_c1.getText().toString();
+        String reportColor2 = report_c2.getText().toString();
+        String reportColor3 = report_c3.getText().toString();
+        String reportColor4 = report_c4.getText().toString();
+        String reportColor5 = report_c5.getText().toString();
+        String reportColor6 = report_c6.getText().toString();
+        //颜色2
+        String reportColor1_1 = report_c1_1.getText().toString();
+        String reportColor2_1 = report_c2_1.getText().toString();
+        String reportColor3_1 = report_c3_1.getText().toString();
+        String reportColor4_1 = report_c4_1.getText().toString();
+        String reportColor5_1 = report_c5_1.getText().toString();
+        String reportColor6_1 = report_c6_1.getText().toString();
+        //..........
+        //System.out.println(report_c1.getText() + "-=-=---=-=-=-=---=");
 
         //定义中医治疗原则
         String treat = "中医治疗原则：" ;
@@ -272,6 +316,14 @@ public class ReportActivity extends Activity {
         String reportColor5 = getIntent().getStringExtra("diagnoseColor5");
         String reportColor6 = getIntent().getStringExtra("diagnoseColor6");
         String reportColor7 = getIntent().getStringExtra("diagnoseColor7");
+        //获取颜色2
+        String reportColor1_1 = getIntent().getStringExtra("diagnoseColor1_1");
+        String reportColor2_1 = getIntent().getStringExtra("diagnoseColor2_1");
+        String reportColor3_1 = getIntent().getStringExtra("diagnoseColor3_1");
+        String reportColor4_1 = getIntent().getStringExtra("diagnoseColor4_1");
+        String reportColor5_1 = getIntent().getStringExtra("diagnoseColor5_1");
+        String reportColor6_1 = getIntent().getStringExtra("diagnoseColor6_1");
+        String reportColor7_1 = getIntent().getStringExtra("diagnoseColor7_1");
         //获取六大部位
         String reportPart1 = getIntent().getStringExtra("diagnose1");
         String reportPart2 = getIntent().getStringExtra("diagnose2");
@@ -288,46 +340,74 @@ public class ReportActivity extends Activity {
         //填写其他部位信息栏
         tv_report7.setText(reportOther);
         //填写颜色信息栏
-        et_report1.setText(reportColor1);
-        et_report2.setText(reportColor2);
-        et_report3.setText(reportColor3);
-        et_report4.setText(reportColor4);
-        et_report5.setText(reportColor5);
-        et_report6.setText(reportColor6);
-        et_report7.setText(reportColor7);     
+        report_c1.setText(reportColor1);
+        report_c2.setText(reportColor2);
+        report_c3.setText(reportColor3);
+        report_c4.setText(reportColor4);
+        report_c5.setText(reportColor5);
+        report_c6.setText(reportColor6);
+        report_c7.setText(reportColor7);
+        //填写颜色2信息栏
+        report_c1_1.setText(reportColor1_1);
+        report_c2_1.setText(reportColor2_1);
+        report_c3_1.setText(reportColor3_1);
+        report_c4_1.setText(reportColor4_1);
+        report_c5_1.setText(reportColor5_1);
+        report_c6_1.setText(reportColor6_1);
+        report_c7_1.setText(reportColor7_1);
         //定义罐印分析结果
         String analyzeResult = "罐印分析：";
         //if(reportColor1.replace(" ","").equals("白色"))
         //根据罐印颜色判断病症  replace 替换中间的空格
         analyzeResult += "肺:" + getAnalyze(reportColor1.replace(" ","")) +
+                getAnalyze(reportColor1_1.replace(" ","")) +
                 "心:" + getAnalyze(reportColor2.replace(" ","")) +
+                getAnalyze(reportColor2_1.replace(" ","")) +
                 "肝胆:" + getAnalyze(reportColor3.replace(" ","")) +
+                getAnalyze(reportColor3_1.replace(" ","")) +
                 "脾胃:" + getAnalyze(reportColor4.replace(" ","")) +
+                getAnalyze(reportColor4_1.replace(" ","")) +
                 "肾:" + getAnalyze(reportColor5.replace(" ","")) +
+                getAnalyze(reportColor5_1.replace(" ","")) +
                 "生殖:" + getAnalyze(reportColor6.replace(" ","")) +
-                tv_report7.getText().toString() + ":" + getAnalyze(reportColor7.replace(" ",""));
+                getAnalyze(reportColor6_1.replace(" ","")) +
+                tv_report7.getText().toString() + ":" + getAnalyze(reportColor7.replace(" ","")) +
+                getAnalyze(reportColor7_1.replace(" ",""));
         tv_report_analyze.setText(analyzeResult);
 
         //定义诊断结果
         String diagnoseResult = "诊断结果：";
         //根据罐印颜色判断病症
         diagnoseResult += "肺:" + getResult(reportPart1, reportColor1.replace(" ","")) +
+                getResult(reportPart1, reportColor1_1.replace(" ","")) +
                 "心:" + getResult(reportPart2, reportColor2.replace(" ","")) +
+                getResult(reportPart2, reportColor2_1.replace(" ","")) +
                 "肝胆:" + getResult(reportPart3, reportColor3.replace(" ","")) +
+                getResult(reportPart3, reportColor3_1.replace(" ","")) +
                 "脾胃:" + getResult(reportPart4, reportColor4.replace(" ","")) +
+                getResult(reportPart4, reportColor4_1.replace(" ","")) +
                 "肾:" + getResult(reportPart5, reportColor5.replace(" ","")) +
+                getResult(reportPart5, reportColor5_1.replace(" ","")) +
                 "生殖:" + getResult(reportPart6, reportColor6.replace(" ","")) +
-                tv_report7.getText().toString() + ":" + getAnalyze(reportColor7.replace(" ",""));
+                getResult(reportPart6, reportColor6_1.replace(" ","")) +
+                tv_report7.getText().toString() + ":" + getAnalyze(reportColor7.replace(" ","")) +
+                getResult(tv_report7.getText().toString(), reportColor7_1.replace(" ",""));
         tv_report_diagnose.setText(diagnoseResult);
 
         //定义中医治疗原则
         String treat = "中医治疗原则：" ;
         treat += "肺:" + getTreat(reportPart1, reportColor1.replace(" ","")) +
+                getTreat(reportPart1, reportColor1_1.replace(" ","")) +      //颜色2
                 "心:" + getTreat(reportPart2, reportColor2.replace(" ","")) +
+                getTreat(reportPart2, reportColor2_1.replace(" ","")) +
                 "肝胆:" + getTreat(reportPart3, reportColor3.replace(" ","")) +
+                getTreat(reportPart3, reportColor3_1.replace(" ","")) +
                 "脾胃:" + getTreat(reportPart4, reportColor4.replace(" ","")) +
+                getTreat(reportPart4, reportColor4_1.replace(" ","")) +
                 "肾:" + getTreat(reportPart5, reportColor5.replace(" ","")) +
-                "生殖:" + getTreat(reportPart6, reportColor6.replace(" ",""));
+                getTreat(reportPart5, reportColor5_1.replace(" ","")) +
+                "生殖:" + getTreat(reportPart6, reportColor6.replace(" ","")) +
+                getTreat(reportPart6, reportColor6_1.replace(" ",""));
         tv_report_treat.setText(treat);
 
         //定义调理方案
@@ -342,17 +422,17 @@ public class ReportActivity extends Activity {
     private String getAnalyze(String color) {
         String str = "";
         if(color.equals("淡红色"))
-            str = "正常。";
+            str = "正常;";
         else if(color.equals("鲜红色"))
-            str = "阴虚火旺。";
+            str = "阴虚火旺;";
         else if(color.equals("白色"))
-            str = "虚症、气血双亏、功能低下。";
+            str = "虚症、气血双亏、功能低下;";
         else if(color.equals("青色"))
-            str = "寒症、湿症。";
+            str = "寒症、湿症;";
         else if(color.equals("紫色"))
-            str = "伴有斑块、表明为瘀症、旧病。";
+            str = "伴有斑块、表明为瘀症、旧病;";
         else if(color.equals("紫黑色"))
-            str = "深黯、表明血瘀、病程已久。";
+            str = "深黯、表明血瘀、病程已久;";
         return str;
     }
 
@@ -361,87 +441,87 @@ public class ReportActivity extends Activity {
         String str = "";
         if(part.equals("肺区")) {
             if (color.equals("淡红色"))
-                str = "正常。";
+                str = "正常;";
             else if (color.equals("鲜红色"))
-                str = "风热犯肺、阴虚火旺。";
+                str = "风热犯肺、阴虚火旺;";
             else if (color.equals("白色"))
-                str = "肺气虚、肺阴亏耗、肺卫不固。";
+                str = "肺气虚、肺阴亏耗、肺卫不固;";
             else if (color.equals("青色"))
-                str = "痰湿蕴肺、痰浊阻肺、寒饮伏肺。";
+                str = "痰湿蕴肺、痰浊阻肺、寒饮伏肺;";
             else if (color.equals("紫色"))
-                str = "痰热郁肺、风燥伤肺。";
+                str = "痰热郁肺、风燥伤肺;";
             else if (color.equals("紫黑色"))
-                str = "肝火犯肺、肺气郁痹。";
+                str = "肝火犯肺、肺气郁痹;";
         }
         else if(part.equals("心区")) {
             if (color.equals("淡红色"))
-                str = "正常。";
+                str = "正常;";
             else if (color.equals("鲜红色"))
-                str = "阴虚火旺、心火上炎。";
+                str = "阴虚火旺、心火上炎;";
             else if (color.equals("白色"))
-                str = "心虚胆怯、心血不足、心阳不振。";
+                str = "心虚胆怯、心血不足、心阳不振;";
             else if (color.equals("青色"))
-                str = "阴寒凝滞。";
+                str = "阴寒凝滞;";
             else if (color.equals("紫色"))
-                str = "肝郁化火、心血瘀阻。";
+                str = "肝郁化火、心血瘀阻;";
             else if (color.equals("紫黑色"))
-                str = "痰热内扰、痰浊壅塞。";
+                str = "痰热内扰、痰浊壅塞;";
         }
         else if(part.equals("肝胆区")) {
             if (color.equals("淡红色"))
-                str = "正常。";
+                str = "正常;";
             else if (color.equals("鲜红色"))
-                str = "气郁化火、阴虚火旺。";
+                str = "气郁化火、阴虚火旺;";
             else if (color.equals("白色"))
-                str = "肝血虚、肝阴不足、心肝阴虚。";
+                str = "肝血虚、肝阴不足、心肝阴虚;";
             else if (color.equals("青色"))
-                str = "寒湿凝滞。";
+                str = "寒湿凝滞;";
             else if (color.equals("紫色"))
-                str = "肝气郁结、瘀血停着。";
+                str = "肝气郁结、瘀血停着;";
             else if (color.equals("紫黑色"))
-                str = "气滞痰郁、肝胆湿热。";
+                str = "气滞痰郁、肝胆湿热;";
         }
         else if(part.equals("脾胃区")) {
             if (color.equals("淡红色"))
-                str = "正常。";
+                str = "正常;";
             else if (color.equals("鲜红色"))
-                str = "饮食停滞。";
+                str = "饮食停滞;";
             else if (color.equals("白色"))
-                str = "脾气虚、脾胃阳虚、脾胃虚弱。";
+                str = "脾气虚、脾胃阳虚、脾胃虚弱;";
             else if (color.equals("青色"))
-                str = "寒邪客胃、脾胃虚寒、痰饮内阻。";
+                str = "寒邪客胃、脾胃虚寒、痰饮内阻;";
             else if (color.equals("紫色"))
-                str = "肝胃郁热、肝气犯胃、气滞血瘀。";
+                str = "肝胃郁热、肝气犯胃、气滞血瘀;";
             else if (color.equals("紫黑色"))
-                str = "瘀血停滞、津亏热结、湿热壅滞。";
+                str = "瘀血停滞、津亏热结、湿热壅滞;";
         }
         else if(part.equals("肾区")) {
             if (color.equals("淡红色"))
-                str = "正常。";
+                str = "正常;";
             else if (color.equals("鲜红色"))
-                str = "阴虚火旺。";
+                str = "阴虚火旺.";
             else if (color.equals("白色"))
-                str = "肾阳虚、肾阴虚、心肾不交。";
+                str = "肾阳虚、肾阴虚、心肾不交;";
             else if (color.equals("青色"))
-                str = "寒湿凝滞。";
+                str = "寒湿凝滞;";
             else if (color.equals("紫色"))
-                str = "湿热下注、肝郁气滞。";
+                str = "湿热下注、肝郁气滞;";
             else if (color.equals("紫黑色"))
-                str = "湿热壅盛 气滞血瘀。";
+                str = "湿热壅盛 气滞血瘀;";
         }
         else if(part.equals("生殖区")) {
             if (color.equals("淡红色"))
-                str = "正常。";
+                str = "正常;";
             else if (color.equals("鲜红色"))
-                str = "阴虚火旺。";
+                str = "阴虚火旺;";
             else if (color.equals("白色"))
-                str = "中气不足、肾阳衰惫。";
+                str = "中气不足、肾阳衰惫;";
             else if (color.equals("青色"))
-                str = "寒湿凝滞。";
+                str = "寒湿凝滞;";
             else if (color.equals("紫色"))
-                str = "肝郁气滞。";
+                str = "肝郁气滞;";
             else if (color.equals("紫黑色"))
-                str = "膀胱湿热、气滞血瘀。";
+                str = "膀胱湿热、气滞血瘀;";
         }
         return str;
     }
@@ -451,87 +531,87 @@ public class ReportActivity extends Activity {
         String str = "";
         if(part.equals("肺区")) {
             if (color.equals("淡红色"))
-                str = "正常。";
+                str = "正常;";
             else if (color.equals("鲜红色"))
-                str = "滋阴清热、滋阴润肺。";
+                str = "滋阴清热、滋阴润肺;";
             else if (color.equals("白色"))
-                str = "补益肺气、益气宣肺。";
+                str = "补益肺气、益气宣肺;";
             else if (color.equals("青色"))
-                str = "温肺散寒、温肺化饮。";
+                str = "温肺散寒、温肺化饮;";
             else if (color.equals("紫色"))
-                str = "滋阴清肺、清热宣肺。";
+                str = "滋阴清肺、清热宣肺;";
             else if (color.equals("紫黑色"))
-                str = "疏肝理气、益气宣肺。";
+                str = "疏肝理气、益气宣肺;";
         }
         else if(part.equals("心区")) {
             if (color.equals("淡红色"))
-                str = "正常。";
+                str = "正常;";
             else if (color.equals("鲜红色"))
-                str = "滋阴清火、养阴润燥。";
+                str = "滋阴清火、养阴润燥;";
             else if (color.equals("白色"))
-                str = "温阳通络、补心血，温心阳。";
+                str = "温阳通络、补心血，温心阳;";
             else if (color.equals("青色"))
-                str = "活血化瘀、温阳通脉。";
+                str = "活血化瘀、温阳通脉;";
             else if (color.equals("紫色"))
-                str = "活血化瘀、理气通络。";
+                str = "活血化瘀、理气通络;";
             else if (color.equals("紫黑色"))
-                str = "清热化痰、运化痰浊。";
+                str = "清热化痰、运化痰浊;";
         }
         else if(part.equals("肝胆区")) {
             if (color.equals("淡红色"))
-                str = "正常。";
+                str = "正常;";
             else if (color.equals("鲜红色"))
-                str = "滋阴清热、疏肝理气。";
+                str = "滋阴清热、疏肝理气;";
             else if (color.equals("白色"))
-                str = "养肝补血、疏肝理气。";
+                str = "养肝补血、疏肝理气;";
             else if (color.equals("青色"))
-                str = "祛寒利湿、温经通络。";
+                str = "祛寒利湿、温经通络;";
             else if (color.equals("紫色"))
-                str = "疏肝解郁、行气活血。";
+                str = "疏肝解郁、行气活血;";
             else if (color.equals("紫黑色"))
-                str = "清热利湿、疏肝利胆。";
+                str = "清热利湿、疏肝利胆;";
         }
         else if(part.equals("脾胃区")) {
             if (color.equals("淡红色"))
-                str = "正常。";
+                str = "正常;";
             else if (color.equals("鲜红色"))
-                str = "消食导滞、健脾和胃。";
+                str = "消食导滞、健脾和胃;";
             else if (color.equals("白色"))
-                str = "益气补脾、健脾和胃。";
+                str = "益气补脾、健脾和胃;";
             else if (color.equals("青色"))
-                str = "温中健脾、助运化湿。";
+                str = "温中健脾、助运化湿;";
             else if (color.equals("紫色"))
-                str = "疏肝理气、健脾和胃、活血化瘀。";
+                str = "疏肝理气、健脾和胃、活血化瘀;";
             else if (color.equals("紫黑色"))
-                str = "行气健脾，助运化湿。";
+                str = "行气健脾，助运化湿;";
         }
         else if(part.equals("肾区")) {
             if (color.equals("淡红色"))
-                str = "正常。";
+                str = "正常;";
             else if (color.equals("鲜红色"))
-                str = "滋阴降火、养阴润燥。";
+                str = "滋阴降火、养阴润燥;";
             else if (color.equals("白色"))
-                str = "补肾益气、补益心肾。";
+                str = "补肾益气、补益心肾;";
             else if (color.equals("青色"))
-                str = "温肾通脉、温阳化湿。";
+                str = "温肾通脉、温阳化湿;";
             else if (color.equals("紫色"))
-                str = "清利湿热、疏肝解郁。";
+                str = "清利湿热、疏肝解郁;";
             else if (color.equals("紫黑色"))
-                str = "活血化瘀、行气通络。";
+                str = "活血化瘀、行气通络;";
         }
         else if(part.equals("生殖区")) {
             if (color.equals("淡红色"))
-                str = "正常。";
+                str = "正常;";
             else if (color.equals("鲜红色"))
-                str = "滋阴降火、养阴润燥。";
+                str = "滋阴降火、养阴润燥;";
             else if (color.equals("白色"))
-                str = "温补脾肾、益气和胃。";
+                str = "温补脾肾、益气和胃;";
             else if (color.equals("青色"))
-                str = "温阳化饮、温通经脉。";
+                str = "温阳化饮、温通经脉;";
             else if (color.equals("紫色"))
-                str = "活血化瘀、疏肝理气。";
+                str = "活血化瘀、疏肝理气;";
             else if (color.equals("紫黑色"))
-                str = "活血化瘀、清利湿热。";
+                str = "活血化瘀、清利湿热;";
         }
         return str;
     }
@@ -539,14 +619,14 @@ public class ReportActivity extends Activity {
     //调理方案
     private String getCases(String color1, String color2, String color3, String color4, String color5, String color6){
         String str = "";
-        String str1 = "1、用电磁吸附罐调理部位为督脉：从长强穴至大椎穴，能量传导由下至上布罐，调理时间为5分钟。" +
-                "2、用电磁调理吸附罐调理部位为膀胱经对称顺序（肺俞、心俞、肝俞、脾俞、肾俞、大肠俞）穴位，能量传导由上至下，分别调理分两次时间各5分钟，共计时10分钟。" +
-                "3、用电磁吸附罐调理部位为（中脘、气海、天枢、水道）穴位对称布罐，能量传导逆时针方向，调理时间为5分钟。" +
-                "4、用电磁罐调理部位为正面下肢（血海、足三里、三阴交）穴位，能量传导由上向下布罐，时间为5分钟。";
-        String str2 = "1、用电磁吸附罐调理部位为督脉：从大椎穴至长强穴，能量传导由上至下布罐，调理时间为5分钟。" +
-                "2、用电磁调理吸附罐调理部位为膀胱经对称顺序（肺俞、心俞、肝俞、脾俞、肾俞、大肠俞）穴位，能量传导由下至上布罐，分别调理分两次时间各5分钟，共计时10分钟。" +
-                "3、用电磁吸附罐调理部位为（中脘、气海、天枢、水道）穴位布罐，能量传导顺时针方向，调理时间为5分钟。" +
-                "4、用电磁吸附罐调理部位为下肢膀胱经（殷门、委中、承山）穴位，能量传导由上至下对称顺序分配，时间为5分钟。";
+        String str1 = "1、用电磁吸附罐调理部位为督脉：从长强穴至大椎穴，能量传导由下至上布罐，调理时间为5分钟." +
+                "2、用电磁调理吸附罐调理部位为膀胱经对称顺序（肺俞、心俞、肝俞、脾俞、肾俞、大肠俞）穴位，能量传导由上至下，分别调理分两次时间各5分钟，共计时10分钟." +
+                "3、用电磁吸附罐调理部位为（中脘、气海、天枢、水道）穴位对称布罐，能量传导逆时针方向，调理时间为5分钟." +
+                "4、用电磁罐调理部位为正面下肢（血海、足三里、三阴交）穴位，能量传导由上向下布罐，时间为5分钟.";
+        String str2 = "1、用电磁吸附罐调理部位为督脉：从大椎穴至长强穴，能量传导由上至下布罐，调理时间为5分钟." +
+                "2、用电磁调理吸附罐调理部位为膀胱经对称顺序（肺俞、心俞、肝俞、脾俞、肾俞、大肠俞）穴位，能量传导由下至上布罐，分别调理分两次时间各5分钟，共计时10分钟." +
+                "3、用电磁吸附罐调理部位为（中脘、气海、天枢、水道）穴位布罐，能量传导顺时针方向，调理时间为5分钟." +
+                "4、用电磁吸附罐调理部位为下肢膀胱经（殷门、委中、承山）穴位，能量传导由上至下对称顺序分配，时间为5分钟.";
         int case1 = 0, case2 = 0;
         if(color1.equals("白色") || color1.equals("青色"))
             case1 ++;
@@ -575,7 +655,7 @@ public class ReportActivity extends Activity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             insertDiagnoseInfo();
-                            Toast.makeText(ReportActivity.this, "保存诊断结果...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ReportActivity.this, "保存诊断结果中...", Toast.LENGTH_SHORT).show();
                         }
                     });
                     dialogSaveDb.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -643,11 +723,15 @@ public class ReportActivity extends Activity {
                 public void run() {
                     dbUtil.addDiagnose(et_report_name.getText().toString(), et_report_sex.getText().toString(),
                             et_report_age.getText().toString(), et_report_date.getText().toString(),
-                            et_report1.getText().toString(), et_report2.getText().toString(),
-                            et_report3.getText().toString(), et_report4.getText().toString(),
-                            et_report5.getText().toString(), et_report6.getText().toString(),
-                            et_report7.getText().toString(), tv_report7.getText().toString(),
+                            report_c1.getText().toString(), report_c2.getText().toString(),
+                            report_c3.getText().toString(), report_c4.getText().toString(),
+                            report_c5.getText().toString(), report_c6.getText().toString(), report_c7.getText().toString(),
+                            report_c1_1.getText().toString(), report_c2_1.getText().toString(),
+                            report_c3_1.getText().toString(), report_c4_1.getText().toString(),
+                            report_c5_1.getText().toString(), report_c6_1.getText().toString(),
+                            report_c7_1.getText().toString(), tv_report7.getText().toString(),
                             tv_report_analyze.getText().toString(), tv_report_diagnose.getText().toString(),tv_report_treat.getText().toString(),
+                            tv_report_cases.getText().toString(), tv_report_opinion.getText().toString(),
                             userPhotoUri.toString(),et_report_phone.getText().toString());
                 }
             }.start();

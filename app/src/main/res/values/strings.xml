@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">SandeTest</string>
     <string name="part1">肺区</string>
-    <string name="report1">肺区 (C7-T3)</string>
+    <string name="report1">肺区</string>
     <string name="part2">心区</string>
-    <string name="report2">心区 (T4-T6)</string>
+    <string name="report2">心区</string>
     <string name="part3">肝胆区</string>
-    <string name="report3">肝胆区 (T7-T5)</string>
+    <string name="report3">肝胆区</string>
     <string name="part4">脾胃区</string>
-    <string name="report4">脾胃区 (T11-T2)</string>
+    <string name="report4">脾胃区</string>
     <string name="part5">肾区</string>
-    <string name="report5">肾区 (L1-L3)</string>
+    <string name="report5">肾区</string>
     <string name="part6">生殖区</string>
-    <string name="report6">生殖区 (L4-S)</string>
+    <string name="report6">生殖区</string>
     <string name="part7">其他部位...</string>
     <string name="report7">其他部位...</string>
     <string name="search">显示数据库查询的病人信息</string>
@@ -34,4 +34,22 @@
     <string name="btn_savedb">保 存</string>
     <string name="btn_pdf">生成pdf</string>
     <string name="btn_diagnose">诊 断</string>
+    <string name="register_name">姓名</string>
+    <string name="register_password">密码</string>
+    <string name="register_id">身份证号码</string>
+    <string name="register_clinic_name">诊所名称</string>
+    <string name="register_clinic_address">诊所地址</string>
+    <string name="register_host_id">主机编号</string>
+    <string name="register_sex">性别</string>
+    <string name="register_btn">注册</string>
+    <string name="hint_password">请输入密码</string>
+    <string name="hint_username">请输入姓名</string>
+    <string name="hint_id">请输入身份证号码</string>
+    <string name="hint_clinic_name">请输入诊所名称</string>
+    <string name="hint_address">请输入诊所地址</string>
+    <string name="rb_man">男</string>
+    <string name="rb_woman">女</string>
+    <string name="hint_host_id">请输入主机编号</string>
+    <string name="hint_phone">请输入手机号码</string>
+    <string name="register_phone">手机号码</string>
 </resources>

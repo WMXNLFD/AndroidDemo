@@ -68,153 +68,286 @@
     <!--android:textSize="20sp" />-->
 
     <GridLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="0dp"
         android:columnCount="4"
         android:orientation="horizontal"
         android:rowCount="7">
 
         <TextView
             android:id="@+id/tv_p1"
-            android:layout_columnSpan="3"
+            android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:layout_margin="2dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/bluesolid"
-            android:paddingLeft="20dp"
             android:text="@string/part1"
+            android:gravity="center"
             android:textColor="@color/colorWhite"
             android:textSize="25sp" />
 
-        <EditText
-            android:id="@+id/et_1"
+        <TextView
+            android:id="@+id/tv_color1"
             android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_margin="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="0dp"
             android:background="@drawable/graysolid"
             android:hint="颜色"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/tv_color1_1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_margin="2dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/graysolid"
+            android:hint="颜色"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
             android:textSize="25sp" />
 
         <TextView
             android:id="@+id/tv_p2"
-            android:layout_columnSpan="3"
+            android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:layout_margin="2dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/bluesolid"
-            android:paddingLeft="20dp"
+            android:gravity="center"
             android:text="@string/part2"
             android:textColor="@color/colorWhite"
             android:textSize="25sp" />
 
-        <EditText
-            android:id="@+id/et_2"
+        <TextView
+            android:id="@+id/tv_color2"
             android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_margin="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="0dp"
             android:background="@drawable/graysolid"
             android:hint="颜色"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/tv_color2_1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_margin="2dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/graysolid"
+            android:hint="颜色"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
             android:textSize="25sp" />
 
         <TextView
             android:id="@+id/tv_p3"
-            android:layout_columnSpan="3"
+            android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:layout_margin="2dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/bluesolid"
-            android:paddingLeft="20dp"
+            android:gravity="center"
             android:text="@string/part3"
             android:textColor="@color/colorWhite"
             android:textSize="25sp" />
 
-        <EditText
-            android:id="@+id/et_3"
+        <TextView
+            android:id="@+id/tv_color3"
             android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_margin="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="0dp"
             android:background="@drawable/graysolid"
             android:hint="颜色"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/tv_color3_1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_margin="2dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/graysolid"
+            android:hint="颜色"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
             android:textSize="25sp" />
 
         <TextView
             android:id="@+id/tv_p4"
-            android:layout_columnSpan="3"
+            android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:layout_margin="2dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/bluesolid"
-            android:paddingLeft="20dp"
+            android:gravity="center"
             android:text="@string/part4"
             android:textColor="@color/colorWhite"
             android:textSize="25sp" />
 
-        <EditText
-            android:id="@+id/et_4"
+        <TextView
+            android:id="@+id/tv_color4"
             android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_margin="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="0dp"
             android:background="@drawable/graysolid"
             android:hint="颜色"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/tv_color4_1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_margin="2dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/graysolid"
+            android:hint="颜色"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
             android:textSize="25sp" />
 
         <TextView
             android:id="@+id/tv_p5"
-            android:layout_columnSpan="3"
+            android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:layout_margin="2dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/bluesolid"
-            android:paddingLeft="20dp"
+            android:gravity="center"
             android:text="@string/part5"
             android:textColor="@color/colorWhite"
             android:textSize="25sp" />
 
-        <EditText
-            android:id="@+id/et_5"
+        <TextView
+            android:id="@+id/tv_color5"
             android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_margin="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="0dp"
             android:background="@drawable/graysolid"
             android:hint="颜色"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/tv_color5_1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_margin="2dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/graysolid"
+            android:hint="颜色"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
             android:textSize="25sp" />
 
         <TextView
             android:id="@+id/tv_p6"
-            android:layout_columnSpan="3"
+            android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:layout_margin="2dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/bluesolid"
-            android:paddingLeft="20dp"
+            android:gravity="center"
             android:text="@string/part6"
             android:textColor="@color/colorWhite"
             android:textSize="25sp" />
 
-        <EditText
-            android:id="@+id/et_6"
+        <TextView
+            android:id="@+id/tv_color6"
             android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_margin="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="0dp"
             android:background="@drawable/graysolid"
             android:hint="颜色"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/tv_color6_1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_margin="2dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/graysolid"
+            android:hint="颜色"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
             android:textSize="25sp" />
 
         <TextView
             android:id="@+id/tv_p7"
-            android:layout_columnSpan="3"
+            android:layout_columnSpan="2"
             android:layout_gravity="fill"
             android:layout_margin="2dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/bluesolid"
-            android:paddingLeft="20dp"
+            android:gravity="center"
             android:text="@string/part7"
             android:textColor="@color/colorWhite"
             android:textSize="25sp" />
 
-        <EditText
-            android:id="@+id/et_7"
+        <TextView
+            android:id="@+id/tv_color7"
             android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_margin="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="0dp"
             android:background="@drawable/graysolid"
             android:hint="颜色"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/tv_color7_1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:layout_margin="2dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/graysolid"
+            android:hint="颜色"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
             android:textSize="25sp" />
     </GridLayout>
 
